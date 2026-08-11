@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="여러 작업 사이트로 이동하는 통합 웹사이트 허브" />
+    <title>통합 웹사이트 허브</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">WEB HUB</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p>Web service hub</p>
+        <h1 id="page-title">통합 웹사이트 허브</h1>
+        <span>이동할 사이트를 선택하세요.</span>
+      </section>
+
+      <nav class="site-grid" aria-label="사이트 목록">
+        <a
+          class="site-card is-pending"
+          href="https://www.naver.com/"
+        >
+          <span class="card-number">01</span>
+          <span class="card-text">
+            <strong>사이트1</strong>
+            <small>사이트 연결 전</small>
+          </span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a
+          class="site-card is-pending"
+          href="https://www.youtube.com/"
+        >
+          <span class="card-number">02</span>
+          <span class="card-text">
+            <strong>사이트2</strong>
+            <small>사이트 연결 전</small>
+          </span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+      </nav>
+    </main>
+  </body>
+</html>
