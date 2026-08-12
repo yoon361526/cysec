@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,7 +41,7 @@
         권장 크기: 1600 × 1200 이상 / JPG 또는 WebP
       =========================================================== -->
       <section class="featured-sites" aria-label="대표 연구 사이트">
-        <a class="featured-card" href="#">
+        <article class="featured-card">
           <img
             class="featured-card__image"
             src="assets/placeholders/research-01.svg"
@@ -51,21 +51,32 @@
           <span class="featured-card__shade" aria-hidden="true"></span>
 
           <span class="featured-card__number">01 / FEATURED SITE</span>
-          <span class="featured-card__content">
+          <div class="featured-card__content">
             <!-- 아래 분류, 제목, 설명을 첫 번째 사이트 내용으로 교체하세요. -->
             <span class="featured-card__category">연구분야 넣기</span>
             <strong>Hyun-woo Lee</strong>
             <span class="featured-card__description">
               설명
             </span>
-            <span class="featured-card__action">
-              Web Site
-              <span aria-hidden="true">↗</span>
+            <span class="featured-card__actions">
+              <!-- href를 실제 개인 웹사이트 주소로 교체하세요. -->
+              <a class="featured-card__action" href="#">
+                Web Site
+                <span aria-hidden="true">↗</span>
+              </a>
+              <button
+                class="featured-card__action featured-card__action--product"
+                type="button"
+                data-product-modal="hyun-woo"
+              >
+                제품 소개
+                <span aria-hidden="true">＋</span>
+              </button>
             </span>
-          </span>
-        </a>
+          </div>
+        </article>
 
-        <a class="featured-card" href="#">
+        <article class="featured-card">
           <img
             class="featured-card__image"
             src="assets/placeholders/research-02.svg"
@@ -75,20 +86,187 @@
           <span class="featured-card__shade" aria-hidden="true"></span>
 
           <span class="featured-card__number">02 / FEATURED SITE</span>
-          <span class="featured-card__content">
+          <div class="featured-card__content">
             <!-- 아래 분류, 제목, 설명을 두 번째 사이트 내용으로 교체하세요. -->
             <span class="featured-card__category">연구분야 넣기</span>
             <strong>Ji-young Lee</strong>
             <span class="featured-card__description">
               설명
             </span>
-            <span class="featured-card__action">
-              Web Site
-              <span aria-hidden="true">↗</span>
+            <span class="featured-card__actions">
+              <!-- href를 실제 개인 웹사이트 주소로 교체하세요. -->
+              <a class="featured-card__action" href="#">
+                Web Site
+                <span aria-hidden="true">↗</span>
+              </a>
+              <button
+                class="featured-card__action featured-card__action--product"
+                type="button"
+                data-product-modal="ji-young"
+              >
+                제품 소개
+                <span aria-hidden="true">＋</span>
+              </button>
             </span>
-          </span>
-        </a>
+          </div>
+        </article>
       </section>
+
+      <!-- ==========================================================
+        PRODUCT MODAL / 제품 소개
+
+        제품명과 설명은 아래 product-item 안의 문구를 교체하세요.
+        영상 파일은 assets/videos 폴더에 넣고 source의 src와 이름을 맞추세요.
+        카테고리를 추가하려면 product-category(details) 묶음을 복사하면 됩니다.
+      =========================================================== -->
+      <dialog class="product-modal" data-product-dialog aria-labelledby="product-modal-title">
+        <div class="product-modal__shell">
+          <header class="product-modal__header">
+            <div>
+              <p class="product-modal__eyebrow">PRODUCTS / 제품 소개</p>
+              <h2 id="product-modal-title" data-product-modal-title>제품 소개</h2>
+              <p class="product-modal__lead">
+                카테고리를 선택해 제품 설명과 시연 영상을 확인하세요.
+              </p>
+            </div>
+            <button class="product-modal__close" type="button" data-product-close aria-label="제품 소개 닫기">
+              <span aria-hidden="true">×</span>
+            </button>
+          </header>
+
+          <div class="product-modal__body">
+            <!-- Hyun-woo Lee 제품 목록 -->
+            <section class="product-set" data-product-set="hyun-woo" aria-label="Hyun-woo Lee 제품 목록">
+              <details class="product-category" open>
+                <summary>
+                  <span>
+                    <small>CATEGORY 01</small>
+                    가상자산·사이버 위협 통합 분석 플랫폼
+                  </span>
+                  <span class="product-category__toggle" aria-hidden="true">＋</span>
+                </summary>
+                <div class="product-category__content">
+                  <article class="product-item">
+                    <div class="product-item__copy">
+                      <p class="product-item__index">PRODUCT 01</p>
+                      <h3></h3>
+                      <p>
+                        다크웹, 보안 메신저, SNS 및 블록체인에 분산된 데이터를 통합 수집·분석하여 가상자산 범죄와 사이버 위협의 연관성을 추적하는 플랫폼입니다. 다크웹 크롤링 현황과 수집된 URL, 가상자산 주소, 이메일 및 메신저 계정을 조회하고, Telegram, Session, SafeW 등 보안 메신저 채널의 데이터 수집 상태를 실시간으로 확인할 수 있습니다.
+
+비트코인과 트론 등 주요 가상자산 주소의 거래 관계와 교차 체인 연결 단서를 추적하며, 온체인 인텔리전스를 기반으로 자금 흐름과 범죄 조직·거래소·지갑 주소 간 관계를 시각화합니다. 다크웹, 메신저, SNS 및 가상자산 데이터를 하나의 지식그래프로 통합하고, LLM을 활용해 사건의 핵심 노드와 주요 연관 관계를 분석합니다.
+
+또한 압수·확보된 콜드월렛, PC 및 디지털 기기에서 지갑 주소, 거래 기록, 관련 애플리케이션과 가상자산 관련 흔적을 수집하여 온체인 분석 결과와 연계할 수 있습니다. 에이전트 콘솔에서는 사건을 등록하면 관련 데이터의 수집, 추적 및 분석 절차를 자동으로 수행하여 수사와 분석에 필요한 시간과 반복 작업을 줄입니다.
+
+가상자산 범죄 수사, 자금세탁 추적, 디지털 포렌식, 사이버 위협 인텔리전스 및 범죄 조직 연계 분석 분야에 활용할 수 있습니다.
+                      </p>
+                    </div>
+                    <div class="product-video">
+                      <video controls preload="metadata" playsinline aria-label="네트워크 보안 제품 시연 영상">
+                        <source src="assets/videos/hyunwoo_video2.mp4" type="video/mp4" />
+                        브라우저가 동영상 재생을 지원하지 않습니다.
+                      </video>
+                      <p>시연 영상 · assets/videos/hyun-woo-network-01.mp4</p>
+                    </div>
+                  </article>
+                </div>
+              </details>
+
+              <details class="product-category">
+                <summary>
+                  <span>
+                    <small>CATEGORY 02</small>
+                    MCP·AI 에이전트 기반 가상자산 위협 분석 자동화 플랫폼
+                  </span>
+                  <span class="product-category__toggle" aria-hidden="true">＋</span>
+                </summary>
+                <div class="product-category__content">
+                  <article class="product-item">
+                    <div class="product-item__copy">
+                      <p class="product-item__index">PRODUCT 02</p>
+                      <h3></h3>
+                      <p>
+                        다크웹 크롤러, 보안 메신저, 가상자산 추적 엔진, 온체인 인텔리전스 및 지식그래프 분석 기능을 MCP 기반 모듈로 연결한 AI 위협 분석 플랫폼입니다. 다크웹과 Telegram, Session, SafeW 등 다양한 채널에서 수집되는 데이터를 확인하고, 의심 계정과 가상자산 주소에 대한 세부 정보를 통합 조회할 수 있습니다.
+
+가상자산 추적 모듈은 비트코인과 트론 등 주요 블록체인의 거래 흐름과 주소 간 연결 관계를 추적하고, 위험 주소 군집과 교차 체인 이동 단서를 시각화합니다. 또한 자금이 여러 주소로 분산되거나 재결합되는 Split·Peel·Merge 등의 믹싱 패턴을 분석하여 자금세탁 시도와 우회 거래 경로를 추적합니다. 온체인 인텔리전스를 활용해 라자루스와 같은 위협 조직의 라벨 데이터와 관련 지갑·거래소 정보를 조회하며, LLM이 사건별 핵심 단서와 주요 연관 관계를 선별합니다.
+
+수집된 다크웹, 메신저, SNS 및 가상자산 데이터는 하나의 지식그래프로 통합됩니다. 사용자는 LLM에 핵심 노드와 연결 관계 분석을 요청할 수 있으며, 에이전트 콘솔은 사건을 중심으로 데이터 수집, 추적, 관계 분석 및 결과 정리 과정을 자동으로 수행합니다.
+
+가상자산 범죄 수사, 사이버 위협 인텔리전스, 자금 흐름 추적, 범죄 조직 연계 분석 및 디지털 자산 위험 모니터링 분야에 활용할 수 있습니다.
+                      </p>
+                    </div>
+                    <div class="product-video">
+                      <video controls preload="metadata" playsinline aria-label="AI 보안 제품 시연 영상">
+                        <source src="assets/videos/hyunwoo_video1.mp4" type="video/mp4" />
+                        브라우저가 동영상 재생을 지원하지 않습니다.
+                      </video>
+                      <p>시연 영상 · assets/videos/hyun-woo-ai-01.mp4</p>
+                    </div>
+                  </article>
+                </div>
+              </details>
+            </section>
+
+            <!-- Ji-young Lee 제품 목록 -->
+            <section class="product-set" data-product-set="ji-young" aria-label="Ji-young Lee 제품 목록" hidden>
+              <details class="product-category" open>
+                <summary>
+                  <span>
+                    <small>CATEGORY 01</small>
+                    디지털 포렌식
+                  </span>
+                  <span class="product-category__toggle" aria-hidden="true">＋</span>
+                </summary>
+                <div class="product-category__content">
+                  <article class="product-item">
+                    <div class="product-item__copy">
+                      <p class="product-item__index">PRODUCT 01</p>
+                      <h3>제품명을 입력하세요</h3>
+                      <p>
+                        제품의 특징과 주요 사용 대상을 이해하기 쉽게 소개하는 내용을 입력하세요.
+                      </p>
+                    </div>
+                    <div class="product-video">
+                      <video controls preload="metadata" playsinline aria-label="디지털 포렌식 제품 시연 영상">
+                        <source src="assets/videos/ji-young-forensics-01.mp4" type="video/mp4" />
+                        브라우저가 동영상 재생을 지원하지 않습니다.
+                      </video>
+                      <p>시연 영상 · assets/videos/ji-young-forensics-01.mp4</p>
+                    </div>
+                  </article>
+                </div>
+              </details>
+
+              <details class="product-category">
+                <summary>
+                  <span>
+                    <small>CATEGORY 02</small>
+                    보안 교육
+                  </span>
+                  <span class="product-category__toggle" aria-hidden="true">＋</span>
+                </summary>
+                <div class="product-category__content">
+                  <article class="product-item">
+                    <div class="product-item__copy">
+                      <p class="product-item__index">PRODUCT 02</p>
+                      <h3>제품명을 입력하세요</h3>
+                      <p>
+                        제품 소개 내용을 입력하고 아래 영상 경로를 실제 파일명에 맞게 변경하세요.
+                      </p>
+                    </div>
+                    <div class="product-video">
+                      <video controls preload="metadata" playsinline aria-label="보안 교육 제품 시연 영상">
+                        <source src="assets/videos/ji-young-education-01.mp4" type="video/mp4" />
+                        브라우저가 동영상 재생을 지원하지 않습니다.
+                      </video>
+                      <p>시연 영상 · assets/videos/ji-young-education-01.mp4</p>
+                    </div>
+                  </article>
+                </div>
+              </details>
+            </section>
+          </div>
+        </div>
+      </dialog>
 
       <!-- ==========================================================
         BOTTOM AREA: 학교 또는 연구실 대표 이미지
