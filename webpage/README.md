@@ -1,11 +1,15 @@
-# 통합 웹사이트 허브
 
-두 작업 사이트로 이동하기 위한 가벼운 정적 허브입니다. 상세 페이지나 샘플 데이터는 포함하지 않습니다.
+- 가장 간단한 방법: `index.html`을 브라우저로 열기
+- 로컬 서버 사용: 이 폴더에서 `python -m http.server 8080` 실행 후 `http://localhost:8080` 접속
 
-기본 진입 파일은 `index.html` 하나입니다.
+## 파일 구성
 
-실제 사이트를 받으면 `index.html`의 각 카드에서 다음 세 가지만 수정하면 됩니다.
-
-1. `href="#"`를 실제 사이트 주소로 변경
-2. `is-pending` 클래스 제거
-3. `aria-disabled="true"`와 `tabindex="-1"` 제거
+```text
+webpage/
+├─ assets/
+│  └─ hero-research.png   # AI로 제작한 메인 기술 비주얼
+├─ index.html             # 페이지 구조와 모든 콘텐츠
+├─ styles.css             # 디자인, 반응형, 애니메이션
+├─ script.js              # 메뉴, 프로젝트 필터, 상세 팝업
+└─ README.md
+```

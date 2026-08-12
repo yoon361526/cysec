@@ -1,49 +1,156 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="여러 작업 사이트로 이동하는 통합 웹사이트 허브" />
-    <title>통합 웹사이트 허브</title>
+    <meta
+      name="description"
+      content="연구 사이트와 연구실 정보를 연결하는 메인 페이지입니다."
+    />
+    <meta name="theme-color" content="#07110f" />
+
+    <title>CySec Lab — Main</title>
+
+    <link rel="icon" href="assets/Daegu_Univ_Logo.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+
+  <body class="home-page">
+    <a class="skip-link" href="#main-content">본문으로 바로가기</a>
+
+    <!-- 상단바 -->
     <header class="site-header">
-      <a class="brand" href="index.html">WEB HUB</a>
+      <a class="site-label" href="index.html" aria-label="메인 페이지">
+        <span class="site-label__mark" aria-hidden="true"></span>
+        <span>LAB</span>
+      </a>
+
+      <p>INFORMATION SECURITY RESEARCH</p>
     </header>
 
-    <main>
-      <section class="hero" aria-labelledby="page-title">
-        <p>Web service hub</p>
-        <h1 id="page-title">통합 웹사이트 허브</h1>
-        <span>이동할 사이트를 선택하세요.</span>
+    <main id="main-content">
+      <h1 class="visually-hidden">대표 연구 사이트 및 연구실 안내</h1>
+
+      <!-- ==========================================================
+        이미지 교체 방법:
+        현재 src의 placeholder 경로를 실제 이미지 경로로 교체하세요.
+        예: assets/images/research-left.jpg
+            assets/images/research-right.jpg
+
+        파일만 같은 이름으로 넣으면 코드 수정 없이 바로 적용됩니다.
+        권장 크기: 1600 × 1200 이상 / JPG 또는 WebP
+      =========================================================== -->
+      <section class="featured-sites" aria-label="대표 연구 사이트">
+        <a class="featured-card" href="#">
+          <img
+            class="featured-card__image"
+            src="assets/placeholders/research-01.svg"
+            alt=""
+            style="--image-position: center"
+          />
+          <span class="featured-card__shade" aria-hidden="true"></span>
+
+          <span class="featured-card__number">01 / FEATURED SITE</span>
+          <span class="featured-card__content">
+            <!-- 아래 분류, 제목, 설명을 첫 번째 사이트 내용으로 교체하세요. -->
+            <span class="featured-card__category">연구분야 넣기</span>
+            <strong>Hyun-woo Lee</strong>
+            <span class="featured-card__description">
+              설명
+            </span>
+            <span class="featured-card__action">
+              Web Site
+              <span aria-hidden="true">↗</span>
+            </span>
+          </span>
+        </a>
+
+        <a class="featured-card" href="#">
+          <img
+            class="featured-card__image"
+            src="assets/placeholders/research-02.svg"
+            alt=""
+            style="--image-position: center"
+          />
+          <span class="featured-card__shade" aria-hidden="true"></span>
+
+          <span class="featured-card__number">02 / FEATURED SITE</span>
+          <span class="featured-card__content">
+            <!-- 아래 분류, 제목, 설명을 두 번째 사이트 내용으로 교체하세요. -->
+            <span class="featured-card__category">연구분야 넣기</span>
+            <strong>Ji-young Lee</strong>
+            <span class="featured-card__description">
+              설명
+            </span>
+            <span class="featured-card__action">
+              Web Site
+              <span aria-hidden="true">↗</span>
+            </span>
+          </span>
+        </a>
       </section>
 
-      <nav class="site-grid" aria-label="사이트 목록">
-        <a
-          class="site-card is-pending"
-          href="https://www.naver.com/"
-        >
-          <span class="card-number">01</span>
-          <span class="card-text">
-            <strong>사이트1</strong>
-            <small>사이트 연결 전</small>
-          </span>
-          <span class="card-arrow" aria-hidden="true">→</span>
-        </a>
+      <!-- ==========================================================
+        BOTTOM AREA: 학교 또는 연구실 대표 이미지
 
-        <a
-          class="site-card is-pending"
-          href="https://www.youtube.com/"
-        >
-          <span class="card-number">02</span>
-          <span class="card-text">
-            <strong>사이트2</strong>
-            <small>사이트 연결 전</small>
-          </span>
-          <span class="card-arrow" aria-hidden="true">→</span>
-        </a>
-      </nav>
+        이미지 교체 방법:
+        현재 src의 placeholder 경로를 실제 이미지 경로로 교체하세요.
+        예: assets/images/campus.jpg
+
+        권장 크기: 2400 × 1200 이상
+        인물이나 건물이 잘리면 --image-position 값을 조절하세요.
+        예시: style="--image-position: 60% center"
+      =========================================================== -->
+      <section class="lab-intro" aria-labelledby="lab-intro-title">
+        <img class="daegu_logo" src="assets/Daegu_Univ_Logo.svg">
+        <img
+          class="lab-intro__image"
+          src="assets/placeholders/campus.svg"
+          alt=""
+          style="--image-position: center"
+        />
+        <span class="lab-intro__shade" aria-hidden="true"></span>
+
+        <div class="lab-intro__inner">
+          <p class="lab-intro__eyebrow">ABOUT THE LAB / 연구실 안내</p>
+          <h2 id="lab-intro-title">
+            Welcome to Our Lab.
+          </h2>
+          <p class="lab-intro__description">
+            We explore the future of Cybersecurity. through innovative research.
+          </p>
+
+          <nav class="lab-links" aria-label="연구실 상세 페이지">
+            <a class="lab-link" href="https://sites.google.com/view/jykdu">
+              <span class="lab-link__index">01</span>
+              <span>
+                <small>OUTCOMES</small>
+                <strong>Research</strong>
+                <span>논문, 프로젝트 및 주요 활동</span>
+              </span>
+              <span class="lab-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="lab-link" href="https://ce.daegu.ac.kr/professor/list">
+              <span class="lab-link__index">02</span>
+              <span>
+                <small>RESEARCHERS</small>
+                <strong>People</strong>
+                <span>구성원과 각 연구 분야 안내</span>
+              </span>
+              <span class="lab-link__arrow" aria-hidden="true">↗</span>
+            </a>
+          </nav>
+        </div>
+      </section>
     </main>
+
+    <!-- 필요하지 않으면 아래 footer 전체를 삭제해도 됩니다. -->
+    <footer class="site-footer">
+      <p>Cysec Lab</p>
+      <p>© <span data-year>2026</span> CySec Lab, Daegu University.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
   </body>
 </html>
