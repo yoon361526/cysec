@@ -1,21 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1200" role="img" aria-label="학교 또는 연구실 대표 이미지 교체 영역">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#233a34"/>
-      <stop offset="1" stop-color="#081310"/>
+      <stop stop-color="#17263b"/>
+      <stop offset="1" stop-color="#040814"/>
     </linearGradient>
     <radialGradient id="light" cx="50%" cy="18%" r="55%">
-      <stop stop-color="#7df2c7" stop-opacity=".2"/>
-      <stop offset="1" stop-color="#7df2c7" stop-opacity="0"/>
+      <stop stop-color="#5ad7ff" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#5ad7ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violet-light" cx="78%" cy="12%" r="44%">
+      <stop stop-color="#8b7cff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#8b7cff" stop-opacity="0"/>
     </radialGradient>
     <pattern id="windows" width="90" height="90" patternUnits="userSpaceOnUse">
-      <rect x="18" y="18" width="34" height="24" fill="#bff9e3" fill-opacity=".12"/>
+      <rect x="18" y="18" width="34" height="24" fill="#8ecdff" fill-opacity=".12"/>
     </pattern>
   </defs>
   <rect width="2400" height="1200" fill="url(#sky)"/>
   <rect width="2400" height="1200" fill="url(#light)"/>
-  <path d="M0 900 280 760 520 830 850 650 1190 790 1530 570 1870 750 2160 650 2400 740V1200H0Z" fill="#0d1b17"/>
-  <g fill="url(#windows)" stroke="#91cfb8" stroke-opacity=".22">
+  <rect width="2400" height="1200" fill="url(#violet-light)"/>
+  <path d="M0 900 280 760 520 830 850 650 1190 790 1530 570 1870 750 2160 650 2400 740V1200H0Z" fill="#060b17"/>
+  <g fill="url(#windows)" stroke="#8b7cff" stroke-opacity=".22">
     <rect x="420" y="550" width="520" height="430"/>
     <rect x="980" y="440" width="640" height="540"/>
     <rect x="1680" y="600" width="380" height="380"/>

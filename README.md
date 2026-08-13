@@ -16,7 +16,7 @@ webpage/
 │  ├─ product-modal.css   # 제품 소개 모달
 │  ├─ lab-intro.css       # 연구실 소개와 링크
 │  └─ subpages.css        # 하위 페이지 공통 스타일
-├─ styles.css             # 위 기능별 CSS를 불러오는 진입점
+├─ styles.css             # 이전 미리보기 호환용 CSS 진입점
 ├─ script.js              # 메뉴, 프로젝트 필터, 상세 팝업
 └─ README.md
 ```

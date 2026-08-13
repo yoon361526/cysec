@@ -16,6 +16,8 @@
 }
 
 .lab-intro {
+  --lab-accent: #8ecdff;
+  --lab-violet: #9f8cff;
   position: relative;
   display: grid;
   min-height: clamp(650px, 78vh, 920px);
@@ -23,9 +25,44 @@
   isolation: isolate;
   place-items: center;
   padding: clamp(88px, 10vw, 160px) var(--page-padding);
+  margin-top: -1px;
   background:
-    radial-gradient(circle at 50% 25%, rgba(125, 242, 199, 0.18), transparent 26%),
-    #0c1916;
+    radial-gradient(circle at 28% 18%, rgb(90 215 255 / 0.16), transparent 30%),
+    radial-gradient(circle at 76% 16%, rgb(139 124 255 / 0.14), transparent 28%),
+    #050b17;
+}
+
+/* JavaScript가 실행될 때만 초기 위치를 적용해 no-JS 환경에서도 내용이 보입니다. */
+.lab-intro.is-reveal-ready .lab-intro__inner {
+  opacity: 0;
+  transform: translate3d(0, 84px, 0);
+  transition:
+    opacity 650ms ease,
+    transform 1000ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.lab-intro.is-reveal-ready .daegu_logo {
+  opacity: 0;
+  transform: translate3d(0, 44px, 0);
+  transition:
+    opacity 650ms ease,
+    transform 1000ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.lab-intro.is-reveal-ready.is-visible .lab-intro__inner,
+.lab-intro.is-reveal-ready:focus-within .lab-intro__inner {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+.lab-intro.is-reveal-ready.is-visible .daegu_logo,
+.lab-intro.is-reveal-ready:focus-within .daegu_logo {
+  opacity: 1;
+  transform: translate3d(0, -40px, 0);
+  will-change: auto;
 }
 
 .lab-intro__image,
@@ -45,8 +82,8 @@
 .lab-intro__shade {
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(5, 12, 10, 0.58), rgba(5, 12, 10, 0.9)),
-    linear-gradient(90deg, rgba(5, 12, 10, 0.58), transparent 50%, rgba(5, 12, 10, 0.58));
+    linear-gradient(180deg, #050b17 0%, rgb(4 8 20 / 0.66) 20%, rgb(3 7 16 / 0.9) 100%),
+    linear-gradient(90deg, rgb(3 8 18 / 0.62), transparent 50%, rgb(3 8 18 / 0.62));
 }
 
 .lab-intro__inner {
@@ -57,7 +94,7 @@
 
 .lab-intro__eyebrow {
   margin-bottom: 24px;
-  color: var(--accent);
+  color: var(--lab-accent);
   font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.15em;
@@ -95,15 +132,17 @@
   gap: clamp(18px, 2vw, 28px);
   align-items: center;
   padding: clamp(24px, 3vw, 40px);
-  border: 1px solid rgba(255, 255, 255, 0.54);
-  background: rgba(5, 12, 10, 0.5);
+  border: 1px solid rgb(142 205 255 / 0.38);
+  background:
+    linear-gradient(145deg, rgb(12 23 43 / 0.72), rgb(9 11 29 / 0.58));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
   backdrop-filter: blur(12px);
   transition: color 250ms ease, background 250ms ease, transform 250ms var(--ease-out);
 }
 
 .lab-link__index,
 .lab-link small {
-  color: var(--accent);
+  color: var(--lab-accent);
   font-size: 10px;
   font-weight: 850;
   letter-spacing: 0.12em;
@@ -122,7 +161,7 @@
 }
 
 .lab-link > span:nth-child(2) > span {
-  color: #c6d0cc;
+  color: #c6d3df;
   font-size: 13px;
 }
 
@@ -137,15 +176,16 @@
 }
 
 .lab-link:hover {
-  color: var(--ink);
-  background: var(--accent);
+  color: #050b17;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--lab-accent), var(--lab-violet));
   transform: translateY(-5px);
 }
 
 .lab-link:hover .lab-link__index,
 .lab-link:hover small,
 .lab-link:hover > span:nth-child(2) > span {
-  color: #27423a;
+  color: #17213a;
 }
 
 .lab-link:hover .lab-link__arrow {
@@ -183,3 +223,18 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .lab-intro.is-reveal-ready .lab-intro__inner,
+  .lab-intro.is-reveal-ready.is-visible .lab-intro__inner {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .lab-intro.is-reveal-ready .daegu_logo,
+  .lab-intro.is-reveal-ready.is-visible .daegu_logo {
+    opacity: 1;
+    transform: translateY(-40px);
+    transition: none;
+  }
+}

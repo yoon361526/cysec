@@ -223,3 +223,84 @@ if ("IntersectionObserver" in window) {
 
   researchVisualCards.forEach((card) => visualObserver.observe(card));
 }
+
+/* Welcome 영역: 이전 미리보기 HTML에도 스크롤 안내 요소를 자동으로 보강합니다. */
+const featuredSites = document.querySelector(".featured-sites");
+const labIntroSection = document.querySelector(".lab-intro");
+
+if (featuredSites && labIntroSection) {
+  labIntroSection.id ||= "lab-intro";
+  labIntroSection.setAttribute("data-lab-reveal", "");
+
+  const labIntroImage = labIntroSection.querySelector(".lab-intro__image");
+  const labIntroImagePath = labIntroImage?.getAttribute("src")?.split("?")[0];
+
+  if (labIntroImagePath?.endsWith("assets/placeholders/campus.svg")) {
+    labIntroImage.src = `${labIntroImagePath}?v=20260813-12`;
+  }
+
+  if (!document.querySelector("[data-lab-scroll]")) {
+    const labScrollCue = document.createElement("a");
+    labScrollCue.className = "featured-scroll-cue";
+    labScrollCue.href = "#lab-intro";
+    labScrollCue.setAttribute("data-lab-scroll", "");
+    labScrollCue.innerHTML = `
+      <span class="featured-scroll-cue__label">EXPLORE THE LAB</span>
+      <span class="featured-scroll-cue__arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M12 4v14M6.5 12.5 12 18l5.5-5.5"></path>
+        </svg>
+      </span>
+    `;
+    featuredSites.insertAdjacentElement("afterend", labScrollCue);
+  }
+
+  if (!document.querySelector("[data-lab-scroll-float]")) {
+    const floatingScrollCue = document.createElement("a");
+    floatingScrollCue.className = "featured-scroll-float";
+    floatingScrollCue.href = "#lab-intro";
+    floatingScrollCue.setAttribute("data-lab-scroll-float", "");
+    floatingScrollCue.setAttribute("aria-label", "Explore the lab");
+    floatingScrollCue.innerHTML = `
+      <span>SCROLL</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 4v14M6.5 12.5 12 18l5.5-5.5"></path>
+      </svg>
+    `;
+    document.body.append(floatingScrollCue);
+  }
+}
+
+/* 스크롤 또는 안내 화살표 이동 시 Welcome 영역이 아래에서 위로 나타납니다. */
+const labIntro = document.querySelector("[data-lab-reveal]");
+
+if (labIntro) {
+  let labRevealObserver;
+  const floatingScrollCue = document.querySelector("[data-lab-scroll-float]");
+
+  const revealLabIntro = () => {
+    labIntro.classList.add("is-visible");
+    floatingScrollCue?.classList.add("is-hidden");
+    labRevealObserver?.disconnect();
+  };
+
+  if (!reducedMotion.matches && "IntersectionObserver" in window) {
+    labIntro.classList.add("is-reveal-ready");
+    labRevealObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) revealLabIntro();
+      },
+      {
+        threshold: 0,
+        rootMargin: "0px 0px -20% 0px",
+      },
+    );
+    labRevealObserver.observe(labIntro);
+  } else {
+    revealLabIntro();
+  }
+
+  reducedMotion.addEventListener("change", (event) => {
+    if (event.matches) revealLabIntro();
+  });
+}
