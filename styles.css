@@ -2,9 +2,9 @@
  * 스타일 진입점
  * 실제 규칙은 기능별 파일에서 관리합니다.
  */
-@import url("./styles/base.css?v=20260813-14");
-@import url("./styles/layout.css?v=20260813-14");
-@import url("./styles/featured.css?v=20260813-14");
-@import url("./styles/product-modal.css?v=20260813-14");
-@import url("./styles/lab-intro.css?v=20260813-14");
-@import url("./styles/subpages.css?v=20260813-14");
+@import url("./styles/base.css?v=20260813-16");
+@import url("./styles/layout.css?v=20260813-16");
+@import url("./styles/featured.css?v=20260813-16");
+@import url("./styles/product-modal.css?v=20260813-16");
+@import url("./styles/lab-intro.css?v=20260813-16");
+@import url("./styles/subpages.css?v=20260813-16");
