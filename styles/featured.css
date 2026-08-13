@@ -600,6 +600,14 @@
   line-height: 1.7;
 }
 
+/* 2열 화면에서는 짧은 오른쪽 설명의 한 줄 높이를 여백으로 보충해
+   두 카드의 카테고리와 제목 시작선을 맞춥니다. */
+@media (min-width: 901px) {
+  .featured-card[data-research-visual="agents"] .featured-card__description {
+    margin-bottom: calc(34px + clamp(25.5px, 2.21vw, 30.6px));
+  }
+}
+
 .featured-card__actions {
   display: flex;
   width: 100%;
@@ -738,4 +746,3 @@
     transform: none;
   }
 }
-
