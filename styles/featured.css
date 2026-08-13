@@ -1,0 +1,741 @@
+/* ----------------------------------------------------------------
+   메인: 상단 두 개의 대표 사이트
+   ---------------------------------------------------------------- */
+
+.featured-sites {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.featured-card {
+  --far-x: 0px;
+  --far-y: 0px;
+  --mid-x: 0px;
+  --mid-y: 0px;
+  --near-x: 0px;
+  --near-y: 0px;
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: clamp(580px, 68vh, 840px);
+  overflow: hidden;
+  isolation: isolate;
+  align-content: end;
+  padding: clamp(28px, 4vw, 64px);
+  border-bottom: 1px solid var(--line-light);
+  background:
+    radial-gradient(circle at 75% 20%, rgba(125, 242, 199, 0.18), transparent 24%),
+    linear-gradient(135deg, #152621, #07110f);
+}
+
+.featured-card:first-child {
+  border-right: 1px solid var(--line-light);
+}
+
+/* 카드 바탕색을 주제별로 분리합니다(01 가상자산 = 시안/앰버/바이올렛, 02 AI = 블루/퍼플). */
+.featured-card[data-research-visual="crypto"] {
+  --card-accent: #ffd18a;
+  background:
+    radial-gradient(circle at 56% 22%, rgb(90 215 255 / 0.2), transparent 30%),
+    radial-gradient(circle at 86% 12%, rgb(255 184 92 / 0.18), transparent 24%),
+    radial-gradient(circle at 74% 35%, rgb(139 124 255 / 0.11), transparent 30%),
+    linear-gradient(to top right, #040814 0%, #091426 54%, #17263b 100%);
+}
+
+.featured-card[data-research-visual="agents"] {
+  --card-accent: #8ecdff;
+  background:
+    radial-gradient(circle at 54% 22%, rgba(113, 199, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 84% 12%, rgba(187, 126, 255, 0.16), transparent 24%),
+    linear-gradient(140deg, #0e1a2b, #060814);
+}
+
+.featured-card[data-research-visual="agents"] .featured-card__category {
+  color: #8ecdff;
+}
+
+.featured-card[data-research-visual="crypto"] .featured-card__category {
+  color: #ffd18a;
+}
+
+.featured-card__image,
+.featured-card__shade {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.featured-card__image {
+  z-index: -3;
+  object-fit: cover;
+  object-position: var(--image-position, center);
+  opacity: 0.72;
+  filter: saturate(0.66) contrast(1.12);
+  transition: transform 800ms var(--ease-out), filter 800ms ease;
+}
+
+/* 이미지 파일이 아직 없거나 로딩되지 않아도 배경색과 텍스트는 유지됩니다. */
+.featured-card__image:not([src]),
+.featured-card__image[src=""] {
+  display: none;
+}
+
+/* 주제별 인터랙티브 연구 비주얼 */
+.research-visual {
+  --visual-rgb: 90 215 255;
+  --visual-secondary-rgb: 216 244 255;
+  --visual-tertiary-rgb: 139 124 255;
+  position: absolute;
+  z-index: -2;
+  inset: -4%;
+  overflow: hidden;
+  color: rgb(var(--visual-rgb));
+  pointer-events: none;
+  contain: paint;
+}
+
+.research-visual--crypto {
+  --visual-rgb: 90 215 255;
+  --visual-secondary-rgb: 255 184 92;
+  --visual-tertiary-rgb: 139 124 255;
+  background:
+    radial-gradient(circle at 58% 24%, rgb(90 215 255 / 0.13), transparent 31%),
+    radial-gradient(circle at 86% 12%, rgb(255 184 92 / 0.12), transparent 25%),
+    radial-gradient(circle at 78% 36%, rgb(139 124 255 / 0.09), transparent 30%),
+    linear-gradient(to top right, rgb(3 7 17 / 0.58), rgb(8 18 34 / 0.22) 52%, rgb(24 38 60 / 0.08));
+}
+
+.research-visual--agents {
+  --visual-rgb: 113 199 255;
+  --visual-secondary-rgb: 187 126 255;
+  background:
+    radial-gradient(circle at 54% 28%, rgb(113 199 255 / 0.17), transparent 32%),
+    radial-gradient(circle at 78% 16%, rgb(187 126 255 / 0.11), transparent 25%),
+    linear-gradient(145deg, rgb(4 17 28 / 0.08), rgb(8 7 24 / 0.54));
+}
+
+.research-visual svg {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  opacity: 0.9;
+}
+
+.visual-depth {
+  will-change: transform;
+}
+
+.visual-depth--far {
+  transform: translate3d(var(--far-x), var(--far-y), 0);
+}
+
+.visual-depth--mid {
+  transform: translate3d(var(--mid-x), var(--mid-y), 0);
+}
+
+.visual-depth--near {
+  transform: translate3d(var(--near-x), var(--near-y), 0);
+}
+
+.visual-meta {
+  fill: rgb(var(--visual-secondary-rgb) / 0.64);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+/* 가상자산 차트와 블록체인 흐름 */
+.crypto-ledger-lines {
+  fill: none;
+  stroke: rgb(var(--visual-rgb) / 0.34);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 12;
+}
+
+.crypto-blocks rect {
+  fill: rgb(12 18 39 / 0.74);
+  stroke: rgb(var(--visual-tertiary-rgb) / 0.7);
+  stroke-width: 1.5;
+}
+
+.crypto-blocks rect:nth-child(even) {
+  stroke: rgb(var(--visual-secondary-rgb) / 0.62);
+}
+
+.crypto-chart__area {
+  opacity: 0.76;
+}
+
+.crypto-chart__line,
+.crypto-chart__runner {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.crypto-chart__line {
+  stroke: rgb(var(--visual-rgb) / 0.93);
+  stroke-width: 4;
+  stroke-dasharray: 100;
+  filter: drop-shadow(0 0 8px rgb(var(--visual-rgb) / 0.52));
+}
+
+.crypto-chart__runner {
+  stroke: #ffd18a;
+  stroke-width: 3;
+  stroke-dasharray: 3 97;
+  filter: drop-shadow(0 0 8px rgb(var(--visual-secondary-rgb) / 0.58));
+}
+
+.crypto-candles line {
+  stroke: rgb(var(--visual-rgb) / 0.68);
+  stroke-width: 2;
+}
+
+.crypto-candles rect {
+  fill: rgb(var(--visual-rgb) / 0.12);
+  stroke: rgb(var(--visual-rgb) / 0.8);
+  stroke-width: 2;
+}
+
+.crypto-candles > g:nth-child(3n + 2) line,
+.crypto-candles > g:nth-child(3n + 2) rect {
+  stroke: rgb(var(--visual-tertiary-rgb) / 0.84);
+}
+
+.crypto-candles > g:nth-child(4n) line,
+.crypto-candles > g:nth-child(4n) rect {
+  stroke: rgb(var(--visual-secondary-rgb) / 0.88);
+}
+
+.crypto-candles > g {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.crypto-coin__aura {
+  fill: rgb(var(--visual-secondary-rgb) / 0.03);
+  stroke: rgb(var(--visual-tertiary-rgb) / 0.2);
+  stroke-width: 1;
+}
+
+.crypto-coin__orbit {
+  fill: none;
+  stroke: rgb(var(--visual-rgb) / 0.52);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.crypto-coin__orbit--outer {
+  stroke-dasharray: 4 13 24 10;
+}
+
+.crypto-coin__orbit--inner {
+  stroke: rgb(var(--visual-tertiary-rgb) / 0.56);
+  stroke-dasharray: 2 8;
+}
+
+.crypto-coin__face {
+  stroke: rgb(var(--visual-secondary-rgb) / 0.82);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 18px rgb(var(--visual-secondary-rgb) / 0.36));
+}
+
+.crypto-coin__symbol {
+  fill: #fff2cf;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 68px;
+  font-weight: 700;
+  filter: drop-shadow(0 0 14px rgb(var(--visual-secondary-rgb) / 0.78));
+}
+
+.crypto-sparks {
+  fill: rgb(var(--visual-secondary-rgb) / 0.9);
+  stroke: rgb(var(--visual-secondary-rgb) / 0.86);
+  stroke-linecap: round;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 8px rgb(var(--visual-secondary-rgb) / 0.8));
+}
+
+.crypto-sparks :nth-child(even) {
+  fill: rgb(var(--visual-tertiary-rgb) / 0.9);
+  stroke: rgb(var(--visual-tertiary-rgb) / 0.86);
+}
+
+/* AI 에이전트 네트워크와 소셜 신호 확산 */
+.agent-orbits {
+  fill: none;
+  stroke: rgb(var(--visual-rgb) / 0.22);
+  stroke-width: 1.25;
+  stroke-dasharray: 4 12;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.agent-orbits ellipse:nth-child(2) {
+  stroke: rgb(var(--visual-secondary-rgb) / 0.2);
+  stroke-dasharray: 20 12 3 12;
+}
+
+.agent-orbits ellipse:nth-child(3) {
+  stroke: rgb(var(--visual-rgb) / 0.32);
+  stroke-dasharray: 2 8;
+}
+
+.agent-edges {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.agent-edges--base {
+  stroke: rgb(var(--visual-rgb) / 0.19);
+  stroke-width: 1.25;
+}
+
+.agent-edges--flow {
+  stroke: rgb(var(--visual-rgb) / 0.7);
+  stroke-width: 2;
+  stroke-dasharray: 2 14;
+  filter: drop-shadow(0 0 5px rgb(var(--visual-rgb) / 0.46));
+}
+
+.agent-wave-field circle {
+  fill: none;
+  stroke: rgb(var(--visual-rgb) / 0.48);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.agent-core__aura {
+  stroke: rgb(var(--visual-rgb) / 0.34);
+  stroke-width: 1.5;
+}
+
+.agent-core__orbit,
+.agent-core__ring {
+  fill: none;
+  stroke: rgb(var(--visual-rgb) / 0.72);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.agent-core__orbit {
+  stroke-dasharray: 8 13 2 13;
+}
+
+.agent-core__ring {
+  stroke: rgb(var(--visual-secondary-rgb) / 0.68);
+  stroke-dasharray: 3 7;
+}
+
+.agent-core__dot {
+  fill: #f2fbff;
+  filter: drop-shadow(0 0 13px rgb(var(--visual-rgb) / 0.95));
+}
+
+.agent-core text,
+.agent-node text {
+  fill: rgb(var(--visual-secondary-rgb) / 0.62);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.agent-node > circle:not(.agent-node__halo, .agent-node__status) {
+  fill: rgb(7 24 34 / 0.76);
+  stroke: rgb(var(--visual-rgb) / 0.8);
+  stroke-width: 2;
+}
+
+.agent-node__halo {
+  fill: none;
+  stroke: rgb(var(--visual-secondary-rgb) / 0.45);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.agent-node__status {
+  fill: #eafcff;
+  filter: drop-shadow(0 0 7px rgb(var(--visual-rgb) / 0.95));
+}
+
+.agent-post {
+  fill: none;
+  stroke: rgb(var(--visual-rgb) / 0.46);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.agent-post rect {
+  fill: rgb(8 22 35 / 0.62);
+}
+
+.agent-post circle {
+  fill: rgb(var(--visual-secondary-rgb) / 0.7);
+  stroke: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .crypto-ledger-lines {
+    animation: visual-signal-flow 18s linear infinite;
+  }
+
+  .crypto-chart__line {
+    stroke-dashoffset: 100;
+    animation: crypto-chart-draw 2.8s var(--ease-out) 0.2s forwards;
+  }
+
+  .crypto-chart__runner {
+    animation: visual-signal-flow 5.6s linear infinite;
+  }
+
+  .crypto-candles > g {
+    animation: crypto-candle-live 4.2s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  .crypto-coin__orbit--outer {
+    animation: visual-orbit 30s linear infinite;
+  }
+
+  .crypto-coin__orbit--inner {
+    animation: visual-orbit 20s linear infinite reverse;
+  }
+
+  .crypto-sparks path,
+  .crypto-sparks circle {
+    animation: visual-spark 3.2s ease-in-out infinite;
+  }
+
+  .crypto-sparks :nth-child(2) {
+    animation-delay: -1.3s;
+  }
+
+  .crypto-sparks :nth-child(3) {
+    animation-delay: -2.1s;
+  }
+
+  .crypto-sparks :nth-child(4) {
+    animation-delay: -0.7s;
+  }
+
+  .agent-orbits {
+    animation: visual-orbit 48s linear infinite;
+  }
+
+  .agent-edges--flow {
+    animation: visual-signal-flow 13s linear infinite;
+  }
+
+  .agent-wave-field circle {
+    animation: agent-wave 4.4s ease-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .agent-core__orbit {
+    animation: visual-orbit 18s linear infinite;
+  }
+
+  .agent-core__ring {
+    animation: visual-orbit 12s linear infinite reverse;
+  }
+
+  .agent-node__halo {
+    animation: agent-node-pulse 3.8s ease-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  .agent-post {
+    animation: agent-post-float 4.8s ease-in-out infinite;
+  }
+
+  .agent-post--two {
+    animation-delay: -2.2s;
+  }
+}
+
+@keyframes crypto-chart-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes visual-signal-flow {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes crypto-candle-live {
+  0%,
+  100% {
+    opacity: 0.48;
+    transform: translateY(3px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes visual-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes visual-spark {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  48% {
+    opacity: 1;
+  }
+}
+
+@keyframes agent-wave {
+  0% {
+    opacity: 0.58;
+    transform: scale(0.68);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.7);
+  }
+}
+
+@keyframes agent-node-pulse {
+  0%,
+  18% {
+    opacity: 0.28;
+    transform: scale(0.76);
+  }
+  62% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@keyframes agent-post-float {
+  0%,
+  100% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.featured-card__shade {
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(4, 9, 8, 0.16), rgba(4, 9, 8, 0.94) 86%),
+    linear-gradient(90deg, rgba(4, 9, 8, 0.38), transparent 60%);
+}
+
+.featured-card[data-research-visual="crypto"] .featured-card__shade {
+  background:
+    linear-gradient(180deg, rgb(3 8 18 / 0.16), rgb(3 8 18 / 0.94) 86%),
+    linear-gradient(90deg, rgb(3 8 18 / 0.38), transparent 60%);
+}
+
+.featured-card__number {
+  position: absolute;
+  top: clamp(28px, 4vw, 52px);
+  left: clamp(28px, 4vw, 64px);
+  color: #d8e7e0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.featured-card__content {
+  display: flex;
+  min-width: 0;
+  max-width: 640px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.featured-card__category {
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+}
+
+.featured-card__content > strong {
+  max-width: 660px;
+  margin-bottom: 22px;
+  font-size: clamp(42px, 5vw, 82px);
+  font-weight: 650;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.featured-card__description {
+  max-width: 540px;
+  margin-bottom: 34px;
+  color: var(--text-light);
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.7;
+}
+
+.featured-card__actions {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.featured-card__action {
+  display: inline-flex;
+  min-width: min(220px, 100%);
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 15px 18px;
+  border: 1px solid var(--white);
+  color: var(--ink);
+  background: var(--white);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.5;
+  transition: background 220ms ease, transform 220ms var(--ease-out);
+}
+
+.featured-card__action > span {
+  font-size: 20px;
+}
+
+.featured-card:hover .featured-card__image {
+  filter: saturate(0.82) contrast(1.16);
+  transform: scale(1.035);
+}
+
+.featured-card__action:hover {
+  background: var(--card-accent, var(--accent));
+  transform: translateY(-3px);
+}
+
+.featured-card__action--product {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(7, 17, 15, 0.48);
+  backdrop-filter: blur(10px);
+}
+
+.featured-card__action--product:hover {
+  color: var(--ink);
+  border-color: var(--card-accent, var(--accent));
+}
+
+
+/* ----------------------------------------------------------------
+   반응형과 접근성
+   ---------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .featured-sites {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card {
+    min-height: min(680px, 82svh);
+  }
+
+  .featured-card:first-child {
+    border-right: 0;
+  }
+
+  .featured-card__content > strong {
+    font-size: clamp(44px, 10vw, 72px);
+  }
+}
+
+@media (max-width: 620px) {
+  .featured-card {
+    min-height: 540px;
+    padding: 28px 20px;
+  }
+
+  .featured-card__number {
+    top: 26px;
+    left: 20px;
+  }
+
+  .featured-card__content > strong {
+    font-size: clamp(36px, 11vw, 48px);
+    letter-spacing: -0.05em;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .featured-card__action {
+    width: 100%;
+  }
+
+  .featured-card__actions {
+    flex-direction: column;
+  }
+
+  .research-visual {
+    inset: -2%;
+  }
+}
+
+.product-modal-open .research-visual *,
+.featured-card.is-visual-paused .research-visual * {
+  animation-play-state: paused !important;
+}
+
+@media (forced-colors: active) {
+  .research-visual {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual-depth,
+  .agent-node__halo,
+  .agent-wave-field circle {
+    transform: none !important;
+  }
+
+  .crypto-chart__line {
+    stroke-dashoffset: 0 !important;
+  }
+
+  .agent-node__halo,
+  .agent-wave-field circle {
+    opacity: 0.24;
+  }
+
+  .featured-card:hover .featured-card__image {
+    filter: saturate(0.66) contrast(1.12);
+    transform: none;
+  }
+}
+

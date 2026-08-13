@@ -1,0 +1,81 @@
+/* ----------------------------------------------------------------
+   공통 헤더와 푸터
+   ---------------------------------------------------------------- */
+
+.site-header {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px var(--page-padding);
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.site-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.site-label__logo {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.site-header > p {
+  margin-bottom: 0;
+  color: #5d6863;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.site-footer {
+  display: flex;
+  min-height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 24px var(--page-padding);
+  color: var(--muted-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-footer p {
+  margin-bottom: 0;
+}
+
+
+/* ----------------------------------------------------------------
+   반응형
+   ---------------------------------------------------------------- */
+
+@media (max-width: 620px) {
+  .site-header {
+    min-height: 66px;
+  }
+
+  .site-header > p {
+    display: none;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+

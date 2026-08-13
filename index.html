@@ -1,26 +1,26 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="연구 사이트와 연구실 정보를 연결하는 메인 페이지입니다."
+      content="Main page showcasing our research areas, products, and lab information."
     />
     <meta name="theme-color" content="#07110f" />
 
     <title>CySec Lab — Main</title>
 
     <link rel="icon" href="assets/Daegu_Univ_Logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260813" />
   </head>
 
   <body class="home-page">
-    <a class="skip-link" href="#main-content">본문으로 바로가기</a>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- 상단바 -->
     <header class="site-header">
-      <a class="site-label" href="index.html" aria-label="메인 페이지">
+      <a class="site-label" href="index.html" aria-label="Main page">
         <span class="site-label__mark" aria-hidden="true"></span>
         <span>LAB</span>
       </a>
@@ -29,7 +29,7 @@
     </header>
 
     <main id="main-content">
-      <h1 class="visually-hidden">대표 연구 사이트 및 연구실 안내</h1>
+      <h1 class="visually-hidden">Featured research areas and lab information</h1>
 
       <!-- ==========================================================
         이미지 교체 방법:
@@ -40,23 +40,102 @@
         파일만 같은 이름으로 넣으면 코드 수정 없이 바로 적용됩니다.
         권장 크기: 1600 × 1200 이상 / JPG 또는 WebP
       =========================================================== -->
-      <section class="featured-sites" aria-label="대표 연구 사이트">
-        <article class="featured-card">
-          <img
-            class="featured-card__image"
-            src="assets/placeholders/research-01.svg"
-            alt=""
-            style="--image-position: center"
-          />
+      <section class="featured-sites" aria-label="Featured research areas">
+        <article
+          class="featured-card"
+          data-research-visual="crypto"
+        >
+          <div class="research-visual research-visual--crypto" aria-hidden="true">
+            <svg viewBox="0 0 1000 900" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="crypto-grid" width="54" height="54" patternUnits="userSpaceOnUse">
+                  <path d="M54 0H0V54" fill="none" stroke="currentColor" opacity=".12" />
+                </pattern>
+                <linearGradient id="crypto-area" x1="0" y1="0" x2="0" y2="1">
+                  <stop stop-color="#5ad7ff" stop-opacity=".3" />
+                  <stop offset=".58" stop-color="#8b7cff" stop-opacity=".14" />
+                  <stop offset="1" stop-color="#8b7cff" stop-opacity="0" />
+                </linearGradient>
+                <radialGradient id="crypto-coin" cx="45%" cy="38%" r="65%">
+                  <stop stop-color="#fff4cf" stop-opacity=".34" />
+                  <stop offset=".5" stop-color="#ffb85c" stop-opacity=".16" />
+                  <stop offset="1" stop-color="#a86cff" stop-opacity=".03" />
+                </radialGradient>
+              </defs>
+
+              <g class="visual-depth visual-depth--far">
+                <rect width="1000" height="900" fill="url(#crypto-grid)" />
+                <g class="crypto-ledger-lines">
+                  <path d="M70 180C205 92 302 234 430 140S650 52 792 150 930 86 1015 20" />
+                  <path d="M-20 330C135 250 220 375 355 290S590 205 720 278 890 220 1030 128" />
+                  <path d="M120 72 260 126 430 140 575 92 792 150 915 94" />
+                </g>
+                <g class="crypto-blocks">
+                  <rect x="56" y="164" width="28" height="28" rx="5" />
+                  <rect x="247" y="112" width="26" height="26" rx="5" />
+                  <rect x="417" y="127" width="28" height="28" rx="5" />
+                  <rect x="779" y="137" width="28" height="28" rx="5" />
+                  <rect x="902" y="81" width="26" height="26" rx="5" />
+                </g>
+              </g>
+
+              <g class="visual-depth visual-depth--mid">
+                <path
+                  class="crypto-chart__area"
+                  d="M-45 560C55 545 110 602 185 525S312 515 385 447 495 465 570 372 690 412 752 306 866 344 1040 176V680H-45Z"
+                  fill="url(#crypto-area)"
+                />
+                <path
+                  class="crypto-chart__line"
+                  pathLength="100"
+                  d="M-45 560C55 545 110 602 185 525S312 515 385 447 495 465 570 372 690 412 752 306 866 344 1040 176"
+                />
+                <path
+                  class="crypto-chart__runner"
+                  pathLength="100"
+                  d="M-45 560C55 545 110 602 185 525S312 515 385 447 495 465 570 372 690 412 752 306 866 344 1040 176"
+                />
+                <g class="crypto-candles">
+                  <g style="--delay: -1.1s"><line x1="160" y1="404" x2="160" y2="530" /><rect x="147" y="438" width="26" height="58" rx="3" /></g>
+                  <g style="--delay: -2.8s"><line x1="240" y1="355" x2="240" y2="490" /><rect x="227" y="390" width="26" height="66" rx="3" /></g>
+                  <g style="--delay: -.5s"><line x1="320" y1="377" x2="320" y2="520" /><rect x="307" y="412" width="26" height="68" rx="3" /></g>
+                  <g style="--delay: -2.1s"><line x1="400" y1="305" x2="400" y2="450" /><rect x="387" y="342" width="26" height="70" rx="3" /></g>
+                  <g style="--delay: -3.4s"><line x1="480" y1="330" x2="480" y2="474" /><rect x="467" y="365" width="26" height="69" rx="3" /></g>
+                  <g style="--delay: -1.7s"><line x1="560" y1="240" x2="560" y2="386" /><rect x="547" y="278" width="26" height="68" rx="3" /></g>
+                  <g style="--delay: -3s"><line x1="640" y1="270" x2="640" y2="414" /><rect x="627" y="307" width="26" height="67" rx="3" /></g>
+                  <g style="--delay: -.9s"><line x1="720" y1="193" x2="720" y2="336" /><rect x="707" y="230" width="26" height="66" rx="3" /></g>
+                </g>
+              </g>
+
+              <g class="visual-depth visual-depth--near">
+                <g class="crypto-coin-rings">
+                  <circle class="crypto-coin__aura" cx="794" cy="202" r="142" />
+                  <circle class="crypto-coin__orbit crypto-coin__orbit--outer" cx="794" cy="202" r="112" />
+                  <circle class="crypto-coin__orbit crypto-coin__orbit--inner" cx="794" cy="202" r="78" />
+                  <circle class="crypto-coin__face" cx="794" cy="202" r="52" fill="url(#crypto-coin)" />
+                </g>
+                <text class="crypto-coin__symbol" x="794" y="225" text-anchor="middle">₿</text>
+                <g class="crypto-sparks">
+                  <path d="M930 225v30M915 240h30" />
+                  <path d="M754 80v18M745 89h18" />
+                  <circle cx="570" cy="372" r="6" />
+                  <circle cx="752" cy="306" r="6" />
+                </g>
+                <g class="visual-meta">
+                  <text x="715" y="395">LIVE ON-CHAIN SIGNAL</text>
+                </g>
+              </g>
+            </svg>
+          </div>
           <span class="featured-card__shade" aria-hidden="true"></span>
 
-          <span class="featured-card__number">01 / FEATURED SITE</span>
+          <span class="featured-card__number">01 / RESEARCH AREA</span>
           <div class="featured-card__content">
-            <!-- 아래 분류, 제목, 설명을 첫 번째 사이트 내용으로 교체하세요. -->
-            <span class="featured-card__category">연구분야 넣기</span>
-            <strong>Hyun-woo Lee</strong>
+            <span class="featured-card__category">CYBER THREAT INTELLIGENCE</span>
+            <strong>Cryptocurrency &amp; Cyber Threat Intelligence</strong>
             <span class="featured-card__description">
-              설명
+              AI-powered investigation of cryptocurrency crime, fund flows, and
+              cyber threats across blockchain, dark-web, and messaging data.
             </span>
             <span class="featured-card__actions">
               <!-- href를 실제 개인 웹사이트 주소로 교체하세요. -->
@@ -69,29 +148,98 @@
                 type="button"
                 data-product-modal="hyun-woo"
               >
-                제품 소개
+                Products
                 <span aria-hidden="true">＋</span>
               </button>
             </span>
           </div>
         </article>
 
-        <article class="featured-card">
-          <img
-            class="featured-card__image"
-            src="assets/placeholders/research-02.svg"
-            alt=""
-            style="--image-position: center"
-          />
+        <article
+          class="featured-card"
+          data-research-visual="agents"
+        >
+          <div class="research-visual research-visual--agents" aria-hidden="true">
+            <svg viewBox="0 0 1000 900" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="agent-dots" width="42" height="42" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1.7" fill="currentColor" opacity=".14" />
+                </pattern>
+                <radialGradient id="agent-core" cx="42%" cy="35%" r="68%">
+                  <stop stop-color="#e7f7ff" stop-opacity=".3" />
+                  <stop offset=".46" stop-color="#78c8ff" stop-opacity=".13" />
+                  <stop offset="1" stop-color="#b57dff" stop-opacity=".03" />
+                </radialGradient>
+              </defs>
+
+              <g class="visual-depth visual-depth--far">
+                <rect width="1000" height="900" fill="url(#agent-dots)" />
+                <g class="agent-orbits">
+                  <ellipse cx="515" cy="278" rx="382" ry="236" />
+                  <ellipse cx="515" cy="278" rx="270" ry="166" />
+                  <ellipse cx="515" cy="278" rx="170" ry="104" />
+                </g>
+              </g>
+
+              <g class="visual-depth visual-depth--mid">
+                <g class="agent-edges agent-edges--base">
+                  <path d="M515 278 178 170M515 278 350 104M515 278 680 108M515 278 842 188M515 278 885 365M515 278 704 484M515 278 376 505M515 278 144 407" />
+                  <path d="M178 170 350 104 680 108 842 188 885 365 704 484 376 505 144 407Z" />
+                  <path d="M178 170 376 505M350 104 704 484M680 108 144 407M842 188 376 505" />
+                </g>
+                <g class="agent-edges agent-edges--flow">
+                  <path pathLength="100" d="M515 278 178 170M515 278 350 104M515 278 680 108M515 278 842 188M515 278 885 365M515 278 704 484M515 278 376 505M515 278 144 407" />
+                  <path pathLength="100" d="M178 170 350 104 680 108 842 188 885 365 704 484 376 505 144 407Z" />
+                </g>
+              </g>
+
+              <g class="visual-depth visual-depth--near">
+                <g class="agent-wave-field">
+                  <circle cx="515" cy="278" r="82" />
+                  <circle cx="515" cy="278" r="82" style="--delay: -2.2s" />
+                </g>
+                <g class="agent-core">
+                  <circle class="agent-core__aura" cx="515" cy="278" r="76" fill="url(#agent-core)" />
+                  <circle class="agent-core__orbit" cx="515" cy="278" r="55" />
+                  <circle class="agent-core__ring" cx="515" cy="278" r="36" />
+                  <circle class="agent-core__dot" cx="515" cy="278" r="10" />
+                  <text x="515" y="337" text-anchor="middle">AI CORE</text>
+                </g>
+                <g class="agent-nodes">
+                  <g class="agent-node" style="--delay: -.4s"><circle class="agent-node__halo" cx="178" cy="170" r="30" /><circle cx="178" cy="170" r="17" /><circle class="agent-node__status" cx="192" cy="158" r="4" /><text x="178" y="210" text-anchor="middle">AGENT 01</text></g>
+                  <g class="agent-node" style="--delay: -2.3s"><circle class="agent-node__halo" cx="350" cy="104" r="28" /><circle cx="350" cy="104" r="15" /><circle class="agent-node__status" cx="363" cy="93" r="4" /></g>
+                  <g class="agent-node" style="--delay: -1.1s"><circle class="agent-node__halo" cx="680" cy="108" r="31" /><circle cx="680" cy="108" r="17" /><circle class="agent-node__status" cx="694" cy="96" r="4" /><text x="680" y="148" text-anchor="middle">AGENT 07</text></g>
+                  <g class="agent-node" style="--delay: -3.1s"><circle class="agent-node__halo" cx="842" cy="188" r="27" /><circle cx="842" cy="188" r="15" /><circle class="agent-node__status" cx="855" cy="178" r="4" /></g>
+                  <g class="agent-node" style="--delay: -1.8s"><circle class="agent-node__halo" cx="885" cy="365" r="32" /><circle cx="885" cy="365" r="18" /><circle class="agent-node__status" cx="900" cy="353" r="4" /><text x="885" y="407" text-anchor="middle">DEFENSE</text></g>
+                  <g class="agent-node" style="--delay: -.8s"><circle class="agent-node__halo" cx="704" cy="484" r="28" /><circle cx="704" cy="484" r="15" /><circle class="agent-node__status" cx="717" cy="473" r="4" /></g>
+                  <g class="agent-node" style="--delay: -2.7s"><circle class="agent-node__halo" cx="376" cy="505" r="31" /><circle cx="376" cy="505" r="17" /><circle class="agent-node__status" cx="390" cy="493" r="4" /></g>
+                  <g class="agent-node" style="--delay: -1.5s"><circle class="agent-node__halo" cx="144" cy="407" r="28" /><circle cx="144" cy="407" r="15" /><circle class="agent-node__status" cx="157" cy="396" r="4" /><text x="144" y="447" text-anchor="middle">ATTACK</text></g>
+                </g>
+                <g class="agent-post agent-post--one">
+                  <rect x="730" y="255" width="126" height="66" rx="9" />
+                  <circle cx="751" cy="276" r="7" />
+                  <path d="M768 271h65M768 283h45M748 303h84" />
+                </g>
+                <g class="agent-post agent-post--two">
+                  <rect x="214" y="285" width="116" height="60" rx="9" />
+                  <circle cx="234" cy="304" r="6" />
+                  <path d="M249 300h58M249 311h40M232 328h75" />
+                </g>
+                <g class="visual-meta">
+                  <text x="727" y="548">SIGNAL PROPAGATION</text>
+                </g>
+              </g>
+            </svg>
+          </div>
           <span class="featured-card__shade" aria-hidden="true"></span>
 
-          <span class="featured-card__number">02 / FEATURED SITE</span>
+          <span class="featured-card__number">02 / RESEARCH AREA</span>
           <div class="featured-card__content">
-            <!-- 아래 분류, 제목, 설명을 두 번째 사이트 내용으로 교체하세요. -->
-            <span class="featured-card__category">연구분야 넣기</span>
-            <strong>Ji-young Lee</strong>
+            <span class="featured-card__category">AI SOCIAL SIMULATION</span>
+            <strong>AI Agent–Based Social Media Simulation</strong>
             <span class="featured-card__description">
-              설명
+              Multi-agent social media simulation for cyber attack–defense,
+              misinformation analysis, and AI behavior research.
             </span>
             <span class="featured-card__actions">
               <!-- href를 실제 개인 웹사이트 주소로 교체하세요. -->
@@ -104,7 +252,7 @@
                 type="button"
                 data-product-modal="ji-young"
               >
-                제품 소개
+                Products
                 <span aria-hidden="true">＋</span>
               </button>
             </span>
@@ -119,185 +267,254 @@
         영상 파일은 assets/videos 폴더에 넣고 source의 src와 이름을 맞추세요.
         카테고리를 추가하려면 product-category(details) 묶음을 복사하면 됩니다.
       =========================================================== -->
-      <dialog class="product-modal" data-product-dialog aria-labelledby="product-modal-title">
+      <dialog
+        class="product-modal"
+        data-product-dialog
+        data-theme="crypto"
+        aria-labelledby="product-modal-title"
+        aria-describedby="product-modal-description"
+      >
         <div class="product-modal__shell">
           <header class="product-modal__header">
-            <div>
-              <p class="product-modal__eyebrow">PRODUCTS / 제품 소개</p>
-              <h2 id="product-modal-title" data-product-modal-title>제품 소개</h2>
-              <p class="product-modal__lead">
-                카테고리를 선택해 제품 설명과 시연 영상을 확인하세요.
-              </p>
+            <div class="product-modal__visual" aria-hidden="true">
+              <span class="product-modal__visual-grid"></span>
+              <span class="product-modal__visual-orbit"></span>
+              <span class="product-modal__visual-core"></span>
+              <span class="product-modal__visual-signal"></span>
             </div>
-            <button class="product-modal__close" type="button" data-product-close aria-label="제품 소개 닫기">
+            <div class="product-modal__header-copy">
+              <div class="product-modal__meta">
+                <p class="product-modal__eyebrow" data-product-modal-eyebrow>
+                  DIGITAL ASSET INTELLIGENCE / PRODUCT SUITE
+                </p>
+                <span class="product-modal__count" data-product-modal-count>02 PRODUCTS</span>
+              </div>
+              <h2 id="product-modal-title" data-product-modal-title>Products</h2>
+              <p class="product-modal__lead" id="product-modal-description">
+                Explore each platform through its core capabilities, system overview,
+                and working demonstration.
+              </p>
+              <div class="product-modal__stats" aria-label="Product suite summary">
+                <span>
+                  <strong data-product-modal-focus>BLOCKCHAIN / CTI</strong>
+                  <small>CORE SYSTEM</small>
+                </span>
+                <span>
+                  <strong>LIVE</strong>
+                  <small>DEMO VIDEO</small>
+                </span>
+                <span>
+                  <strong>ACTIVE</strong>
+                  <small>RESEARCH STATUS</small>
+                </span>
+              </div>
+            </div>
+            <button class="product-modal__close" type="button" data-product-close aria-label="Close products">
               <span aria-hidden="true">×</span>
             </button>
           </header>
 
           <div class="product-modal__body">
-            <!-- Hyun-woo Lee 제품 목록 -->
-            <section class="product-set" data-product-set="hyun-woo" aria-label="Hyun-woo Lee 제품 목록">
+            <!-- 가상자산 및 사이버 위협 인텔리전스 제품 목록 -->
+            <section class="product-set" data-product-set="hyun-woo" data-product-theme="crypto" aria-label="Cryptocurrency and cyber threat intelligence product list">
               <details class="product-category" open>
-                <summary>
-                  <span>
-                    <small>CATEGORY 01</small>
-                    가상자산·사이버 위협 통합 분석 플랫폼
+                <summary id="crypto-product-01-title">
+                  <span class="product-category__heading">
+                    <small>01 / INTELLIGENCE PLATFORM</small>
+                    <span>Integrated Cryptocurrency and Cyber Threat Intelligence Platform</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
                 </summary>
                 <div class="product-category__content">
-                  <article class="product-item">
+                  <article class="product-item" aria-labelledby="crypto-product-01-title">
                     <div class="product-item__copy">
                       <p class="product-item__index">PRODUCT 01</p>
-                      <h3></h3>
+                      <ul class="product-item__tags" aria-label="Key capabilities">
+                        <li>On-chain Intelligence</li>
+                        <li>Knowledge Graph</li>
+                        <li>Digital Forensics</li>
+                      </ul>
                       <p>
-                        다크웹, 보안 메신저, SNS 및 블록체인에 분산된 데이터를 통합 수집·분석하여 가상자산 범죄와 사이버 위협의 연관성을 추적하는 플랫폼입니다. 다크웹 크롤링 현황과 수집된 URL, 가상자산 주소, 이메일 및 메신저 계정을 조회하고, Telegram, Session, SafeW 등 보안 메신저 채널의 데이터 수집 상태를 실시간으로 확인할 수 있습니다.
+                        This platform integrates and analyzes data scattered across the dark web, encrypted messaging services, social media, and blockchain networks to uncover connections between cryptocurrency-related crime and cyber threats. Users can monitor dark web crawling activity and search collected URLs, cryptocurrency addresses, email addresses, and messaging accounts. The platform also provides real-time visibility into data collection across channels such as Telegram, Session, and SafeW.
 
-비트코인과 트론 등 주요 가상자산 주소의 거래 관계와 교차 체인 연결 단서를 추적하며, 온체인 인텔리전스를 기반으로 자금 흐름과 범죄 조직·거래소·지갑 주소 간 관계를 시각화합니다. 다크웹, 메신저, SNS 및 가상자산 데이터를 하나의 지식그래프로 통합하고, LLM을 활용해 사건의 핵심 노드와 주요 연관 관계를 분석합니다.
+It traces transaction relationships and potential cross-chain links involving major cryptocurrencies, including Bitcoin and TRON. Using on-chain intelligence, the platform visualizes fund flows and connections among criminal organizations, exchanges, and wallet addresses. Data from the dark web, messaging services, social media, and blockchain networks is consolidated into a unified knowledge graph, while large language models (LLMs) identify key entities and analyze significant relationships within each case.
 
-또한 압수·확보된 콜드월렛, PC 및 디지털 기기에서 지갑 주소, 거래 기록, 관련 애플리케이션과 가상자산 관련 흔적을 수집하여 온체인 분석 결과와 연계할 수 있습니다. 에이전트 콘솔에서는 사건을 등록하면 관련 데이터의 수집, 추적 및 분석 절차를 자동으로 수행하여 수사와 분석에 필요한 시간과 반복 작업을 줄입니다.
+The platform can also collect wallet addresses, transaction records, relevant applications, and other cryptocurrency-related artifacts from seized or otherwise acquired cold wallets, computers, and digital devices. These findings can then be correlated with on-chain analysis results. When a case is registered through the agent console, the platform automatically performs the associated data collection, tracing, and analysis workflows, reducing the time and repetitive work required for investigations.
 
-가상자산 범죄 수사, 자금세탁 추적, 디지털 포렌식, 사이버 위협 인텔리전스 및 범죄 조직 연계 분석 분야에 활용할 수 있습니다.
+The platform can be used for cryptocurrency crime investigations, anti-money laundering and fund tracing, digital forensics, cyber threat intelligence, and the analysis of connections between criminal organizations.
+
                       </p>
                     </div>
                     <div class="product-video">
-                      <video controls preload="metadata" playsinline aria-label="네트워크 보안 제품 시연 영상">
+                      <video controls preload="none" playsinline poster="assets/placeholders/product-demo-crypto.svg" aria-label="Cryptocurrency and cyber threat intelligence platform demo video">
                         <source src="assets/videos/hyunwoo_video2.mp4" type="video/mp4" />
-                        브라우저가 동영상 재생을 지원하지 않습니다.
+                        Your browser does not support video playback.
                       </video>
-                      <p>시연 영상 · assets/videos/hyun-woo-network-01.mp4</p>
+                      <p class="product-video__caption">
+                        <span>PRODUCT DEMO</span>
+                        <span class="product-video__status"><i aria-hidden="true"></i> VIDEO</span>
+                      </p>
                     </div>
                   </article>
                 </div>
               </details>
 
               <details class="product-category">
-                <summary>
-                  <span>
-                    <small>CATEGORY 02</small>
-                    MCP·AI 에이전트 기반 가상자산 위협 분석 자동화 플랫폼
+                <summary id="crypto-product-02-title">
+                  <span class="product-category__heading">
+                    <small>02 / AI ANALYSIS PLATFORM</small>
+                    <span>MCP- and AI Agent–Powered Platform for Automated Cryptocurrency Threat Analysis</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
                 </summary>
                 <div class="product-category__content">
-                  <article class="product-item">
+                  <article class="product-item" aria-labelledby="crypto-product-02-title">
                     <div class="product-item__copy">
                       <p class="product-item__index">PRODUCT 02</p>
-                      <h3></h3>
+                      <ul class="product-item__tags" aria-label="Key capabilities">
+                        <li>MCP Orchestration</li>
+                        <li>Cross-chain Tracing</li>
+                        <li>LLM Analysis</li>
+                      </ul>
                       <p>
-                        다크웹 크롤러, 보안 메신저, 가상자산 추적 엔진, 온체인 인텔리전스 및 지식그래프 분석 기능을 MCP 기반 모듈로 연결한 AI 위협 분석 플랫폼입니다. 다크웹과 Telegram, Session, SafeW 등 다양한 채널에서 수집되는 데이터를 확인하고, 의심 계정과 가상자산 주소에 대한 세부 정보를 통합 조회할 수 있습니다.
+                        This AI-powered threat analysis platform connects dark web crawlers, encrypted messaging services, cryptocurrency tracing engines, on-chain intelligence, and knowledge graph analytics through MCP-based modules. Users can monitor data collected from the dark web and channels such as Telegram, Session, and SafeW, while accessing consolidated information on suspicious accounts and cryptocurrency addresses.
 
-가상자산 추적 모듈은 비트코인과 트론 등 주요 블록체인의 거래 흐름과 주소 간 연결 관계를 추적하고, 위험 주소 군집과 교차 체인 이동 단서를 시각화합니다. 또한 자금이 여러 주소로 분산되거나 재결합되는 Split·Peel·Merge 등의 믹싱 패턴을 분석하여 자금세탁 시도와 우회 거래 경로를 추적합니다. 온체인 인텔리전스를 활용해 라자루스와 같은 위협 조직의 라벨 데이터와 관련 지갑·거래소 정보를 조회하며, LLM이 사건별 핵심 단서와 주요 연관 관계를 선별합니다.
+The cryptocurrency tracing module tracks transaction flows and connections between addresses across major blockchains, including Bitcoin and TRON. It also visualizes clusters of high-risk addresses and indicators of cross-chain asset movements. The module analyzes fund-obfuscation patterns such as Split, Peel, and Merge, in which funds are distributed across multiple addresses or later recombined, to identify potential money laundering activity and indirect transaction routes. Using on-chain intelligence, users can access label data associated with threat groups such as the Lazarus Group, along with information on related wallets and exchanges. An LLM then identifies the most relevant indicators and relationships for each case.
 
-수집된 다크웹, 메신저, SNS 및 가상자산 데이터는 하나의 지식그래프로 통합됩니다. 사용자는 LLM에 핵심 노드와 연결 관계 분석을 요청할 수 있으며, 에이전트 콘솔은 사건을 중심으로 데이터 수집, 추적, 관계 분석 및 결과 정리 과정을 자동으로 수행합니다.
+Data collected from the dark web, encrypted messaging services, social media, and blockchain networks is integrated into a unified knowledge graph. Users can ask the LLM to analyze key nodes and their relationships, while the agent console automatically handles case-specific data collection, asset tracing, relationship analysis, and result organization.
 
-가상자산 범죄 수사, 사이버 위협 인텔리전스, 자금 흐름 추적, 범죄 조직 연계 분석 및 디지털 자산 위험 모니터링 분야에 활용할 수 있습니다.
+The platform can be used for cryptocurrency crime investigations, cyber threat intelligence, fund-flow tracing, criminal network analysis, and digital asset risk monitoring.
+
                       </p>
                     </div>
                     <div class="product-video">
-                      <video controls preload="metadata" playsinline aria-label="AI 보안 제품 시연 영상">
+                      <video controls preload="none" playsinline poster="assets/placeholders/product-demo-crypto.svg" aria-label="MCP and AI agent threat analysis platform demo video">
                         <source src="assets/videos/hyunwoo_video1.mp4" type="video/mp4" />
-                        브라우저가 동영상 재생을 지원하지 않습니다.
+                        Your browser does not support video playback.
                       </video>
-                      <p>시연 영상 · assets/videos/hyun-woo-ai-01.mp4</p>
+                      <p class="product-video__caption">
+                        <span>PRODUCT DEMO</span>
+                        <span class="product-video__status"><i aria-hidden="true"></i> VIDEO</span>
+                      </p>
                     </div>
                   </article>
                 </div>
               </details>
             </section>
 
-            <!-- Ji-young Lee 제품 목록 -->
-            <section class="product-set" data-product-set="ji-young" aria-label="Ji-young Lee 제품 목록" hidden>
+            <!-- AI 에이전트 기반 소셜미디어 시뮬레이션 제품 목록 -->
+            <section class="product-set" data-product-set="ji-young" data-product-theme="agents" aria-label="AI agent-based social media simulation product list" hidden>
               <details class="product-category" open>
-                <summary>
-                  <span>
-                    <small>CATEGORY 01</small>
-                    XRange: AI 에이전트 기반 소셜미디어 공방 시뮬레이션 플랫폼
+                <summary id="agents-product-01-title">
+                  <span class="product-category__heading">
+                    <small>01 / ATTACK–DEFENSE SIMULATION</small>
+                    <span>XRange: An AI Agent-Based Social Media Attack–Defense Simulation Platform</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
                 </summary>
                 <div class="product-category__content">
-                  <article class="product-item">
+                  <article class="product-item" aria-labelledby="agents-product-01-title">
                     <div class="product-item__copy">
                       <p class="product-item__index">PRODUCT 01</p>
-                      <h3></h3>
+                      <ul class="product-item__tags" aria-label="Key capabilities">
+                        <li>Attack–Defense</li>
+                        <li>Real-time Agents</li>
+                        <li>Content Moderation</li>
+                      </ul>
                       <p>
-                        실제 SNS와 유사한 환경에서 사용자와 AI 에이전트의 활동, 콘텐츠 확산 및 상호작용을 재현하는 소셜미디어 시뮬레이션 플랫폼입니다. 게시물 작성과 인용, 재게시, 좋아요, 팔로우, 검색, 프로필 조회 등의 기능을 제공하며, AI 범죄자와 수사관 에이전트가 생성한 콘텐츠와 반응 과정을 실시간으로 확인할 수 있습니다.
+                        XRange is a social media simulation platform that recreates user and AI agent activity, content spread, and interactions in a realistic SNS environment. It supports posting, quoting, reposting, likes, follows, search, and profiles — letting you watch AI criminal and investigator agents generate content and react in real time.
 
-관리자 콘솔에서는 플랫폼 계정과 에이전트의 상태를 관리하고, 게시물·미디어·행동 로그를 통합 조회할 수 있습니다. 계정 정지와 복구, 게시물 관리, 관리자 조치 기록 및 공방 라운드 진행 상황을 체계적으로 관리하여 다수의 AI 에이전트가 참여하는 실험 환경을 안정적으로 운영합니다.
+The admin console manages account and agent status with unified access to posts, media, and behavior logs. Suspensions and reinstatements, post moderation, admin action records, and attack–defense round progress are all tracked, keeping large multi-agent experiments running stably.
 
-사이버 범죄 대응 훈련, 허위정보 및 여론 확산 분석, AI 에이전트 행동 검증, 소셜미디어 위협 시나리오 연구 분야에 활용할 수 있습니다.
+Useful for cybercrime response training, misinformation and opinion-spread analysis, AI agent behavior validation, and social media threat scenario research.
                       </p>
                     </div>
                     <div class="product-video">
-                      <video controls preload="metadata" playsinline aria-label="디지털 포렌식 제품 시연 영상">
-                        <source src="assets/videos/ji-young-forensics-01.mp4" type="video/mp4" />
-                        브라우저가 동영상 재생을 지원하지 않습니다.
+                      <video controls preload="none" playsinline poster="assets/placeholders/product-demo-agents.svg" aria-label="XRange simulation platform demo video">
+                        <source src="assets/videos/jiyoung_video1.mp4" type="video/mp4" />
+                        Your browser does not support video playback.
                       </video>
-                      <p>시연 영상 · assets/videos/ji-young-forensics-01.mp4</p>
+                      <p class="product-video__caption">
+                        <span>PRODUCT DEMO</span>
+                        <span class="product-video__status"><i aria-hidden="true"></i> VIDEO</span>
+                      </p>
                     </div>
                   </article>
                 </div>
               </details>
 
               <details class="product-category">
-                <summary>
-                  <span>
-                    <small>CATEGORY 02</small>
-                    XRange AI 계정·에이전트 통합 운영 관리 시스템
+                <summary id="agents-product-02-title">
+                  <span class="product-category__heading">
+                    <small>02 / OPERATIONS SYSTEM</small>
+                    <span>XRange Unified Account &amp; Agent Management System</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
                 </summary>
                 <div class="product-category__content">
-                  <article class="product-item">
+                  <article class="product-item" aria-labelledby="agents-product-02-title">
                     <div class="product-item__copy">
                       <p class="product-item__index">PRODUCT 02</p>
-                      <h3></h3>
+                      <ul class="product-item__tags" aria-label="Key capabilities">
+                        <li>Account Operations</li>
+                        <li>Audit Logs</li>
+                        <li>Bulk Control</li>
+                      </ul>
                       <p>
-                        소셜미디어 시뮬레이션 환경에서 운영되는 다수의 플랫폼 계정과 AI 에이전트를 통합 관리하는 관리자 시스템입니다. 계정별 연결 에이전트, 공개 범위, 게시물·팔로워 수 및 운영 상태를 조회하고, 필요한 계정을 개별 또는 일괄 선택하여 정지·복구·삭제할 수 있습니다.
+                        An administrator system for centrally managing the many platform accounts and AI agents running in a social media simulation environment. You can review each account's linked agent, visibility scope, post and follower counts, and operational status, then suspend, reinstate, or delete accounts individually or in bulk.
 
-AI 에이전트의 역할과 성격, 생성일, 동작 상태를 한 화면에서 확인할 수 있으며, 실험이 종료되거나 더 이상 사용하지 않는 에이전트를 선택하여 일괄 삭제할 수 있습니다. 삭제 전 영향 범위와 복구 불가능 여부를 안내하고 관리 사유를 기록하여 운영 실수를 방지하고 조치 이력을 명확하게 관리합니다.
+Agent roles, personalities, creation dates, and running states are all visible on a single screen, and agents no longer in use once an experiment ends can be selected and deleted in batches. Before deletion, the system explains the scope of impact, warns that the action is irreversible, and records the reason for each action — preventing operational mistakes and keeping a clear audit trail.
 
-대규모 AI 에이전트 실험 운영, 가상 계정 관리, 연구 데이터 정리 및 소셜미디어 시뮬레이션 환경의 관리자 통제 기능으로 활용할 수 있습니다.
+Useful for running large-scale AI agent experiments, managing virtual accounts, organizing research data, and providing administrative control over social media simulation environments.
                       </p>
                     </div>
                     <div class="product-video">
-                      <video controls preload="metadata" playsinline aria-label="보안 교육 제품 시연 영상">
-                        <source src="assets/videos/ji-young-education-01.mp4" type="video/mp4" />
-                        브라우저가 동영상 재생을 지원하지 않습니다.
+                      <video controls preload="none" playsinline poster="assets/placeholders/product-demo-agents.svg" aria-label="Account and agent management system demo video">
+                        <source src="assets/videos/jiyoung_video2.mp4" type="video/mp4" />
+                        Your browser does not support video playback.
                       </video>
-                      <p>시연 영상 · assets/videos/ji-young-education-01.mp4</p>
+                      <p class="product-video__caption">
+                        <span>PRODUCT DEMO</span>
+                        <span class="product-video__status"><i aria-hidden="true"></i> VIDEO</span>
+                      </p>
                     </div>
                   </article>
                 </div>
               </details>
               <details class="product-category">
-                <summary>
-                  <span>
-                    <small>CATEGORY 03</small>
-                    다중 AI 페르소나 기반 소셜 행동 시뮬레이션 시스템
+                <summary id="agents-product-03-title">
+                  <span class="product-category__heading">
+                    <small>03 / PERSONA SIMULATION</small>
+                    <span>Multi-Persona AI Social Behavior Simulation System</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
                 </summary>
                 <div class="product-category__content">
-                  <article class="product-item">
+                  <article class="product-item" aria-labelledby="agents-product-03-title">
                     <div class="product-item__copy">
                       <p class="product-item__index">PRODUCT 03</p>
-                      <h3></h3>
+                      <ul class="product-item__tags" aria-label="Key capabilities">
+                        <li>Persona Engine</li>
+                        <li>Behavior Simulation</li>
+                        <li>Experiment Analytics</li>
+                      </ul>
                       <p>
-                        서로 다른 연령대, 직업, 관심사, 성격 및 SNS 이용 방식을 가진 AI 에이전트를 생성하고, 가상 소셜미디어 환경에서의 행동을 실험하는 시뮬레이션 시스템입니다. 사용자가 세부 특성을 직접 설정하거나 무작위 생성 기능을 이용해 다양한 페르소나를 구성할 수 있으며, 말투, 비속어 사용 여부, 활동 수준, 대인 태도, 행동 성향 및 이미지 게시 확률 등을 설정할 수 있습니다.
+                        A simulation system for creating AI agents with different ages, occupations, interests, personalities, and social media habits, then testing how they behave in a virtual social media environment. Personas can be configured manually or generated at random, with control over tone of voice, use of profanity, activity level, attitude toward others, behavioral tendencies, and image-posting probability.
 
-실험에 참여할 에이전트를 선택한 뒤 실행 시간, 라운드 간격, 이미지 생성, 강제 접속 및 활동 조건을 설정하여 다중 에이전트 실험을 수행합니다. 에이전트는 게시물 작성, 댓글, 좋아요, 인용, 재게시, 팔로우 등의 행동을 자율적으로 수행하며, 플랫폼 피드에서 실제 활동 결과를 확인할 수 있습니다.
+After selecting the agents for an experiment, you set the run duration, round interval, image generation, forced login, and activity conditions to launch a multi-agent run. Agents autonomously post, comment, like, quote, repost, and follow, with the results visible directly in the platform feed.
 
-실험 종료 후에는 라운드별 참여 계정, 생성 게시물, 콘텐츠 노출, 행동 기록 및 에이전트별 판단 결과를 조회할 수 있습니다. AI 페르소나 행동 검증, 콘텐츠 확산 연구, 허위정보 대응 실험, 소셜미디어 이용자 반응 분석 및 사이버 공방 시나리오 평가 분야에 활용할 수 있습니다.
+Once an experiment ends, you can review participating accounts, generated posts, content exposure, behavior logs, and each agent's decision output by round. Useful for AI persona behavior validation, content diffusion research, misinformation countermeasure experiments, social media user response analysis, and cyber attack–defense scenario evaluation.
                       </p>
                     </div>
                     <div class="product-video">
-                      <video controls preload="metadata" playsinline aria-label="보안 교육 제품 시연 영상">
-                        <source src="assets/videos/ji-young-education-01.mp4" type="video/mp4" />
-                        브라우저가 동영상 재생을 지원하지 않습니다.
+                      <video controls preload="none" playsinline poster="assets/placeholders/product-demo-agents.svg" aria-label="Multi-persona AI simulation system demo video">
+                        <source src="assets/videos/jiyoung_video3.mp4" type="video/mp4" />
+                        Your browser does not support video playback.
                       </video>
-                      <p>시연 영상 · assets/videos/ji-young-education-01.mp4</p>
+                      <p class="product-video__caption">
+                        <span>PRODUCT DEMO</span>
+                        <span class="product-video__status"><i aria-hidden="true"></i> VIDEO</span>
+                      </p>
                     </div>
                   </article>
                 </div>
@@ -329,7 +546,7 @@ AI 에이전트의 역할과 성격, 생성일, 동작 상태를 한 화면에�
         <span class="lab-intro__shade" aria-hidden="true"></span>
 
         <div class="lab-intro__inner">
-          <p class="lab-intro__eyebrow">ABOUT THE LAB / 연구실 안내</p>
+          <p class="lab-intro__eyebrow">ABOUT THE LAB</p>
           <h2 id="lab-intro-title">
             Welcome to Our Lab.
           </h2>
@@ -337,13 +554,13 @@ AI 에이전트의 역할과 성격, 생성일, 동작 상태를 한 화면에�
             We explore the future of Cybersecurity. through innovative research.
           </p>
 
-          <nav class="lab-links" aria-label="연구실 상세 페이지">
+          <nav class="lab-links" aria-label="Lab detail pages">
             <a class="lab-link" href="https://sites.google.com/view/jykdu">
               <span class="lab-link__index">01</span>
               <span>
                 <small>OUTCOMES</small>
                 <strong>Research</strong>
-                <span>논문, 프로젝트 및 주요 활동</span>
+                <span>Publications, projects, and key activities</span>
               </span>
               <span class="lab-link__arrow" aria-hidden="true">↗</span>
             </a>
@@ -353,7 +570,7 @@ AI 에이전트의 역할과 성격, 생성일, 동작 상태를 한 화면에�
               <span>
                 <small>RESEARCHERS</small>
                 <strong>People</strong>
-                <span>구성원과 각 연구 분야 안내</span>
+                <span>Members and their research areas</span>
               </span>
               <span class="lab-link__arrow" aria-hidden="true">↗</span>
             </a>

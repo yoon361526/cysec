@@ -1,0 +1,123 @@
+/* ================================================================
+   Research Lab Website Template
+
+   구성:
+   1. 공통 요소
+   2. 메인 페이지
+   3. 서브페이지
+   4. 반응형
+
+   이미지와 문구만 교체하면 사용할 수 있도록 단순하게 작성했습니다.
+   ================================================================ */
+
+:root {
+  color-scheme: dark;
+  --ink: #07110f;
+  --ink-soft: #0d1a17;
+  --paper: #f1f3ee;
+  --white: #ffffff;
+  --text-light: #d9e2de;
+  --muted-light: #9eaaa5;
+  --accent: #7df2c7;
+  --line-light: rgba(255, 255, 255, 0.28);
+  --line-dark: #c8cfca;
+  --page-padding: clamp(20px, 4vw, 64px);
+  --content-width: 1440px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--white);
+  background: var(--ink);
+  font-family: "Pretendard", "SUIT", "Noto Sans KR", "Apple SD Gothic Neo",
+    "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2 {
+  margin-top: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -6px;
+}
+
+::selection {
+  color: var(--ink);
+  background: var(--accent);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  padding: 12px 18px;
+  color: var(--ink);
+  background: var(--accent);
+  font-weight: 800;
+  transform: translateY(-160%);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+
+/* ----------------------------------------------------------------
+   접근성: 모션 감소
+   ---------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
