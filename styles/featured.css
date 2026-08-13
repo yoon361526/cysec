@@ -60,28 +60,12 @@
   color: #ffd18a;
 }
 
-.featured-card__image,
 .featured-card__shade {
   position: absolute;
   z-index: -2;
   inset: 0;
   width: 100%;
   height: 100%;
-}
-
-.featured-card__image {
-  z-index: -3;
-  object-fit: cover;
-  object-position: var(--image-position, center);
-  opacity: 0.72;
-  filter: saturate(0.66) contrast(1.12);
-  transition: transform 800ms var(--ease-out), filter 800ms ease;
-}
-
-/* 이미지 파일이 아직 없거나 로딩되지 않아도 배경색과 텍스트는 유지됩니다. */
-.featured-card__image:not([src]),
-.featured-card__image[src=""] {
-  display: none;
 }
 
 /* 주제별 인터랙티브 연구 비주얼 */
@@ -547,9 +531,6 @@
 
 .featured-card__shade {
   z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(4, 9, 8, 0.16), rgba(4, 9, 8, 0.94) 86%),
-    linear-gradient(90deg, rgba(4, 9, 8, 0.38), transparent 60%);
 }
 
 .featured-card[data-research-visual="crypto"] .featured-card__shade {
@@ -643,11 +624,6 @@
 
 .featured-card__action > span {
   font-size: 20px;
-}
-
-.featured-card:hover .featured-card__image {
-  filter: saturate(0.82) contrast(1.16);
-  transform: scale(1.035);
 }
 
 .featured-card__action:hover {
@@ -883,7 +859,6 @@
   }
 
   .featured-scroll-cue {
-    border-color: currentColor;
     background: Canvas;
   }
 
@@ -912,11 +887,6 @@
   .agent-node__halo,
   .agent-wave-field circle {
     opacity: 0.24;
-  }
-
-  .featured-card:hover .featured-card__image {
-    filter: saturate(0.66) contrast(1.12);
-    transform: none;
   }
 
   .featured-scroll-cue__arrow,

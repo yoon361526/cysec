@@ -12,12 +12,7 @@
     <title>CySec Lab — Main</title>
 
     <link rel="icon" href="assets/Daegu_Univ_Logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles/base.css?v=20260813-16" />
-    <link rel="stylesheet" href="styles/layout.css?v=20260813-16" />
-    <link rel="stylesheet" href="styles/featured.css?v=20260813-16" />
-    <link rel="stylesheet" href="styles/product-modal.css?v=20260813-16" />
-    <link rel="stylesheet" href="styles/lab-intro.css?v=20260813-16" />
-    <link rel="stylesheet" href="styles/subpages.css?v=20260813-16" />
+    <link rel="stylesheet" href="styles.css?v=20260813-18" />
   </head>
 
   <body class="home-page">
@@ -26,8 +21,7 @@
     <!-- 상단바 -->
     <header class="site-header">
       <a class="site-label" href="index.html" aria-label="Main page">
-        <span class="site-label__mark" aria-hidden="true"></span>
-        <span>LAB</span>
+        <span>Cysec LAB</span>
       </a>
 
       <p>INFORMATION SECURITY RESEARCH</p>
@@ -35,16 +29,6 @@
 
     <main id="main-content">
       <h1 class="visually-hidden">Featured research areas and lab information</h1>
-
-      <!-- ==========================================================
-        이미지 교체 방법:
-        현재 src의 placeholder 경로를 실제 이미지 경로로 교체하세요.
-        예: assets/images/research-left.jpg
-            assets/images/research-right.jpg
-
-        파일만 같은 이름으로 넣으면 코드 수정 없이 바로 적용됩니다.
-        권장 크기: 1600 × 1200 이상 / JPG 또는 WebP
-      =========================================================== -->
       <section class="featured-sites" aria-label="Featured research areas">
         <article
           class="featured-card"
@@ -134,7 +118,7 @@
           </div>
           <span class="featured-card__shade" aria-hidden="true"></span>
 
-          <span class="featured-card__number">01 / RESEARCH AREA</span>
+          <span class="featured-card__number">01</span>
           <div class="featured-card__content">
             <span class="featured-card__category">CYBER THREAT INTELLIGENCE</span>
             <strong>Cryptocurrency &amp; Cyber Threat Intelligence</strong>
@@ -238,12 +222,12 @@
           </div>
           <span class="featured-card__shade" aria-hidden="true"></span>
 
-          <span class="featured-card__number">02 / RESEARCH AREA</span>
+          <span class="featured-card__number">02</span>
           <div class="featured-card__content">
             <span class="featured-card__category">AI SOCIAL SIMULATION</span>
-            <strong>AI Agent–Based Social Media Simulation</strong>
+            <strong>AI Agent-Based Social Media Simulation</strong>
             <span class="featured-card__description">
-              Multi-agent social media simulation for cyber attack–defense,
+              Multi-agent social media simulation for cyber attack-defense,
               misinformation analysis, and AI behavior research.
             </span>
             <span class="featured-card__actions">
@@ -264,27 +248,6 @@
           </div>
         </article>
       </section>
-
-      <a class="featured-scroll-cue" href="#lab-intro" data-lab-scroll>
-        <span class="featured-scroll-cue__label">EXPLORE THE LAB</span>
-        <span class="featured-scroll-cue__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false">
-            <path d="M12 4v14M6.5 12.5 12 18l5.5-5.5" />
-          </svg>
-        </span>
-      </a>
-
-      <a
-        class="featured-scroll-float"
-        href="#lab-intro"
-        data-lab-scroll-float
-        aria-label="Explore the lab"
-      >
-        <span>SCROLL</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M12 4v14M6.5 12.5 12 18l5.5-5.5" />
-        </svg>
-      </a>
 
       <!-- ==========================================================
         PRODUCT MODAL / 제품 소개
@@ -311,7 +274,7 @@
             <div class="product-modal__header-copy">
               <div class="product-modal__meta">
                 <p class="product-modal__eyebrow" data-product-modal-eyebrow>
-                  DIGITAL ASSET INTELLIGENCE / PRODUCT SUITE
+                  DIGITAL ASSET INTELLIGENCE
                 </p>
                 <span class="product-modal__count" data-product-modal-count>02 PRODUCTS</span>
               </div>
@@ -322,16 +285,7 @@
               </p>
               <div class="product-modal__stats" aria-label="Product suite summary">
                 <span>
-                  <strong data-product-modal-focus>BLOCKCHAIN / CTI</strong>
-                  <small>CORE SYSTEM</small>
-                </span>
-                <span>
-                  <strong>LIVE</strong>
-                  <small>DEMO VIDEO</small>
-                </span>
-                <span>
-                  <strong>ACTIVE</strong>
-                  <small>RESEARCH STATUS</small>
+                  <strong data-product-modal-focus></strong>
                 </span>
               </div>
             </div>
@@ -346,7 +300,6 @@
               <details class="product-category" open>
                 <summary id="crypto-product-01-title">
                   <span class="product-category__heading">
-                    <small>01 / INTELLIGENCE PLATFORM</small>
                     <span>Integrated Cryptocurrency and Cyber Threat Intelligence Platform</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
@@ -354,7 +307,6 @@
                 <div class="product-category__content">
                   <article class="product-item" aria-labelledby="crypto-product-01-title">
                     <div class="product-item__copy">
-                      <p class="product-item__index">PRODUCT 01</p>
                       <ul class="product-item__tags" aria-label="Key capabilities">
                         <li>On-chain Intelligence</li>
                         <li>Knowledge Graph</li>
@@ -388,7 +340,6 @@ The platform can be used for cryptocurrency crime investigations, anti-money lau
               <details class="product-category">
                 <summary id="crypto-product-02-title">
                   <span class="product-category__heading">
-                    <small>02 / AI ANALYSIS PLATFORM</small>
                     <span>MCP- and AI Agent–Powered Platform for Automated Cryptocurrency Threat Analysis</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
@@ -396,7 +347,6 @@ The platform can be used for cryptocurrency crime investigations, anti-money lau
                 <div class="product-category__content">
                   <article class="product-item" aria-labelledby="crypto-product-02-title">
                     <div class="product-item__copy">
-                      <p class="product-item__index">PRODUCT 02</p>
                       <ul class="product-item__tags" aria-label="Key capabilities">
                         <li>MCP Orchestration</li>
                         <li>Cross-chain Tracing</li>
@@ -433,7 +383,6 @@ The platform can be used for cryptocurrency crime investigations, cyber threat i
               <details class="product-category" open>
                 <summary id="agents-product-01-title">
                   <span class="product-category__heading">
-                    <small>01 / ATTACK–DEFENSE SIMULATION</small>
                     <span>XRange: An AI Agent-Based Social Media Attack–Defense Simulation Platform</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
@@ -441,7 +390,6 @@ The platform can be used for cryptocurrency crime investigations, cyber threat i
                 <div class="product-category__content">
                   <article class="product-item" aria-labelledby="agents-product-01-title">
                     <div class="product-item__copy">
-                      <p class="product-item__index">PRODUCT 01</p>
                       <ul class="product-item__tags" aria-label="Key capabilities">
                         <li>Attack–Defense</li>
                         <li>Real-time Agents</li>
@@ -472,7 +420,6 @@ Useful for cybercrime response training, misinformation and opinion-spread analy
               <details class="product-category">
                 <summary id="agents-product-02-title">
                   <span class="product-category__heading">
-                    <small>02 / OPERATIONS SYSTEM</small>
                     <span>XRange Unified Account &amp; Agent Management System</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
@@ -480,7 +427,6 @@ Useful for cybercrime response training, misinformation and opinion-spread analy
                 <div class="product-category__content">
                   <article class="product-item" aria-labelledby="agents-product-02-title">
                     <div class="product-item__copy">
-                      <p class="product-item__index">PRODUCT 02</p>
                       <ul class="product-item__tags" aria-label="Key capabilities">
                         <li>Account Operations</li>
                         <li>Audit Logs</li>
@@ -510,7 +456,6 @@ Useful for running large-scale AI agent experiments, managing virtual accounts, 
               <details class="product-category">
                 <summary id="agents-product-03-title">
                   <span class="product-category__heading">
-                    <small>03 / PERSONA SIMULATION</small>
                     <span>Multi-Persona AI Social Behavior Simulation System</span>
                   </span>
                   <span class="product-category__toggle" aria-hidden="true">＋</span>
@@ -518,7 +463,6 @@ Useful for running large-scale AI agent experiments, managing virtual accounts, 
                 <div class="product-category__content">
                   <article class="product-item" aria-labelledby="agents-product-03-title">
                     <div class="product-item__copy">
-                      <p class="product-item__index">PRODUCT 03</p>
                       <ul class="product-item__tags" aria-label="Key capabilities">
                         <li>Persona Engine</li>
                         <li>Behavior Simulation</li>
@@ -550,27 +494,11 @@ Once an experiment ends, you can review participating accounts, generated posts,
         </div>
       </dialog>
 
-      <!-- ==========================================================
-        BOTTOM AREA: 학교 또는 연구실 대표 이미지
-
-        이미지 교체 방법:
-        현재 src의 placeholder 경로를 실제 이미지 경로로 교체하세요.
-        예: assets/images/campus.jpg
-
-        권장 크기: 2400 × 1200 이상
-        인물이나 건물이 잘리면 --image-position 값을 조절하세요.
-        예시: style="--image-position: 60% center"
-      =========================================================== -->
-      <section
-        class="lab-intro"
-        id="lab-intro"
-        data-lab-reveal
-        aria-labelledby="lab-intro-title"
-      >
+      <section class="lab-intro" aria-labelledby="lab-intro-title">
         <img class="daegu_logo" src="assets/Daegu_Univ_Logo.svg">
         <img
           class="lab-intro__image"
-          src="assets/placeholders/campus.svg?v=20260813-12"
+          src="assets/placeholders/campus.svg"
           alt=""
           style="--image-position: center"
         />
@@ -613,9 +541,9 @@ Once an experiment ends, you can review participating accounts, generated posts,
     <!-- 필요하지 않으면 아래 footer 전체를 삭제해도 됩니다. -->
     <footer class="site-footer">
       <p>Cysec Lab</p>
-      <p>© <span data-year>2026</span> CySec Lab, Daegu University.</p>
+      <p>© <span data-year>2026</span> CySec Lab, Daegu University, Gyeongsan, South Korea</p>
     </footer>
 
-    <script src="script.js?v=20260813-12" defer></script>
+    <script src="script.js?v=20260813-18" defer></script>
   </body>
 </html>

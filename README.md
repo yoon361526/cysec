@@ -1,22 +1,34 @@
+# CySec Lab 웹사이트
+
+정적 HTML, CSS, JavaScript로 구성된 연구실 소개 페이지입니다. 빌드 과정이나 외부 라이브러리는 필요하지 않습니다.
+
+## 실행
 
 - 가장 간단한 방법: `index.html`을 브라우저로 열기
-- 로컬 서버 사용: 이 폴더에서 `python -m http.server 8080` 실행 후 `http://localhost:8080` 접속
+- 로컬 서버: 프로젝트 폴더에서 `python -m http.server 8080` 실행 후 `http://localhost:8080` 접속
 
-## 파일 구성
+## 파일별 역할
 
 ```text
-webpage/
-├─ assets/
-│  └─ hero-research.png   # AI로 제작한 메인 기술 비주얼
-├─ index.html             # 페이지 구조와 모든 콘텐츠
-├─ styles/                # 기능별 스타일
-│  ├─ base.css            # 변수, 리셋, 전역 접근성
-│  ├─ layout.css          # 공통 헤더와 푸터
-│  ├─ featured.css        # 상단 연구 분야 카드와 애니메이션
-│  ├─ product-modal.css   # 제품 소개 모달
-│  ├─ lab-intro.css       # 연구실 소개와 링크
-│  └─ subpages.css        # 하위 페이지 공통 스타일
-├─ styles.css             # 이전 미리보기 호환용 CSS 진입점
-├─ script.js              # 메뉴, 프로젝트 필터, 상세 팝업
-└─ README.md
+Labweb/
+├─ index.html                    # 화면 구조, 연구 분야·제품·연구실 콘텐츠
+├─ script.js                    # 제품 모달, 영상 제어, 패럴랙스, 스크롤 등장 효과
+├─ styles.css                   # 이전 Live Preview 호환용 CSS 진입점
+├─ styles/
+│  ├─ base.css                  # 색상 변수, 기본 리셋, 포커스·모션 접근성
+│  ├─ layout.css                # 헤더와 푸터
+│  ├─ featured.css              # 상단 연구 분야 카드, SVG 애니메이션, 스크롤 화살표
+│  ├─ product-modal.css         # 제품 소개 모달과 영상 카드
+│  └─ lab-intro.css             # Welcome 영역과 연구실 링크
+└─ assets/
+   ├─ Daegu_Univ_Logo.svg       # 파비콘과 Welcome 로고
+   ├─ images/                   # 향후 실제 이미지 교체용 폴더
+   ├─ placeholders/             # 영상 포스터와 Welcome 배경
+   └─ videos/                   # 제품 시연 영상
 ```
+
+`index.html`은 분리된 CSS 파일을 직접 불러옵니다. `styles.css`는 오래된 Live Preview가 기존 단일 CSS 경로를 요청할 때를 위한 호환 파일이므로 유지합니다.
+
+## 제품 영상
+
+영상 경로와 파일명은 `index.html`의 `<source>` 요소에서 관리합니다. 현재 연결된 영상은 `assets/videos/README.md`에 정리되어 있습니다.

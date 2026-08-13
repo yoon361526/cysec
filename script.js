@@ -29,13 +29,13 @@ if (productDialog) {
     "hyun-woo": {
       title: "Cryptocurrency & Cyber Threat Intelligence",
       theme: "crypto",
-      eyebrow: "DIGITAL ASSET INTELLIGENCE / PRODUCT SUITE",
+      eyebrow: "DIGITAL ASSET INTELLIGENCE",
       focus: "BLOCKCHAIN / CTI",
     },
     "ji-young": {
       title: "AI Agent–Based Social Media Simulation",
       theme: "agents",
-      eyebrow: "MULTI-AGENT SYSTEMS / PRODUCT SUITE",
+      eyebrow: "MULTI-AGENT SYSTEMS",
       focus: "AGENTS / SOCIAL",
     },
   };
@@ -67,7 +67,7 @@ if (productDialog) {
       pauseVideos();
       productDialog.dataset.theme = productArea?.theme || "crypto";
       productTitle.textContent = productArea?.title || "Products";
-      productEyebrow.textContent = productArea?.eyebrow || "PRODUCTS / OVERVIEW";
+      productEyebrow.textContent = productArea?.eyebrow || "PRODUCTS";
       productFocus.textContent = productArea?.focus || "RESEARCH SYSTEM";
       productCount.textContent = `${String(activeSet?.querySelectorAll(".product-category").length || 0).padStart(2, "0")} PRODUCTS`;
       productBody.scrollTop = 0;
@@ -236,7 +236,7 @@ if (featuredSites && labIntroSection) {
   const labIntroImagePath = labIntroImage?.getAttribute("src")?.split("?")[0];
 
   if (labIntroImagePath?.endsWith("assets/placeholders/campus.svg")) {
-    labIntroImage.src = `${labIntroImagePath}?v=20260813-12`;
+    labIntroImage.src = `${labIntroImagePath}?v=20260813-18`;
   }
 
   if (!document.querySelector("[data-lab-scroll]")) {

@@ -11,10 +11,6 @@
 
 }
 
-.lab-intro__description{
-  white-space: nowrap;
-}
-
 .lab-intro {
   --lab-accent: #8ecdff;
   --lab-violet: #9f8cff;
@@ -114,6 +110,7 @@
   color: var(--text-light);
   font-size: clamp(16px, 1.4vw, 20px);
   line-height: 1.75;
+  white-space: nowrap;
 }
 
 .lab-links {

@@ -9,11 +9,6 @@
   justify-content: space-between;
   gap: 24px;
   padding: 16px var(--page-padding);
-  color: var(--ink);
-  background: var(--paper);
-}
-
-.home-page .site-header {
   color: #f4f7fb;
   background:
     radial-gradient(circle at 36% 130%, rgb(90 215 255 / 0.08), transparent 30%),
@@ -30,33 +25,12 @@
   letter-spacing: 0.04em;
 }
 
-.home-page .site-label__mark {
-  width: 10px;
-  height: 10px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #5ad7ff, #8b7cff);
-  box-shadow: 0 0 18px rgb(90 215 255 / 0.24);
-}
-
-.site-label__logo {
-  display: block;
-  width: 48px;
-  height: 48px;
-  flex: 0 0 auto;
-  object-fit: contain;
-}
-
 .site-header > p {
   margin-bottom: 0;
-  color: #5d6863;
+  color: #b8c7d6;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.14em;
-}
-
-.home-page .site-header > p {
-  color: #b8c7d6;
 }
 
 .site-footer {
@@ -67,7 +41,6 @@
   gap: 30px;
   padding: 24px var(--page-padding);
   color: #b8c7d6;
-  border-top: 0;
   background: #030710;
   font-size: 11px;
   font-weight: 700;
