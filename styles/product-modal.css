@@ -243,6 +243,54 @@
   letter-spacing: 0.14em;
 }
 
+/* 상단 두 연구 분야의 Products 모달만 제목 영역을 압축합니다. */
+@media (min-width: 621px) {
+  [data-product-dialog] {
+    width: min(1520px, calc(100% - 20px));
+    max-height: calc(100dvh - 16px);
+  }
+
+  [data-product-dialog] .product-modal__shell {
+    max-height: calc(100dvh - 16px);
+  }
+}
+
+[data-product-dialog] .product-modal__header {
+  align-items: center;
+  gap: 20px;
+  padding: clamp(17px, 2vw, 24px) clamp(22px, 3.4vw, 42px);
+}
+
+[data-product-dialog] .product-modal__header-copy {
+  width: min(100%, 1080px);
+}
+
+[data-product-dialog] .product-modal__meta {
+  margin-bottom: 8px;
+}
+
+[data-product-dialog] h2 {
+  max-width: none;
+  margin-bottom: 0;
+  font-size: clamp(30px, 3.2vw, 42px);
+  line-height: 1.04;
+}
+
+[data-product-dialog] .product-modal__lead,
+[data-product-dialog] .product-modal__stats {
+  display: none;
+}
+
+[data-product-dialog] .product-modal__close {
+  width: 44px;
+  height: 44px;
+  font-size: 27px;
+}
+
+[data-product-dialog] .product-modal__body {
+  scrollbar-gutter: stable;
+}
+
 .product-modal__close {
   position: relative;
   z-index: 3;
@@ -423,14 +471,17 @@
 
 .product-item {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
-  gap: clamp(26px, 3vw, 38px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 36px);
   align-items: start;
 }
 
 .product-item__copy {
   min-width: 0;
-  padding: 4px 0 2px 20px;
+  width: min(100%, 1040px);
+  max-width: none;
+  justify-self: center;
+  padding: 4px 0 2px 22px;
   border-left: 2px solid rgb(var(--modal-accent) / 0.54);
 }
 
@@ -466,11 +517,28 @@
   white-space: pre-line;
 }
 
+[data-product-dialog] .product-item__copy > p {
+  max-width: 52ch;
+  color: #c7d1e2;
+  font-size: clamp(16px, 1vw, 17px);
+  line-height: 1.84;
+}
+
+[data-product-dialog] .product-item__tags li {
+  padding: 8px 11px;
+  font-size: 10px;
+}
+
+[data-product-dialog] .product-video__caption {
+  font-size: 10px;
+}
+
 .product-video {
-  position: sticky;
-  top: 0;
+  position: relative;
   min-width: 0;
-  padding: 10px;
+  width: min(100%, 1040px);
+  justify-self: center;
+  padding: clamp(10px, 1.4vw, 14px);
   overflow: hidden;
   border: 1px solid rgb(var(--modal-accent) / 0.34);
   border-radius: 18px;
@@ -610,12 +678,32 @@
    반응형과 모달 상태
    ---------------------------------------------------------------- */
 
-@media (max-width: 900px) {
-  .product-item {
-    grid-template-columns: minmax(0, 1fr);
+@media (min-width: 961px) {
+  [data-product-dialog] .product-item {
+    grid-template-columns: minmax(0, 1.58fr) minmax(360px, 0.82fr);
+    grid-template-areas: "video copy";
+    gap: clamp(26px, 3vw, 40px);
   }
 
-  .product-video {
+  [data-product-dialog] .product-video {
+    position: sticky;
+    z-index: 2;
+    top: 12px;
+    grid-area: video;
+    width: 100%;
+    align-self: start;
+    justify-self: stretch;
+  }
+
+  [data-product-dialog] .product-item__copy {
+    grid-area: copy;
+    width: 100%;
+    justify-self: stretch;
+  }
+}
+
+@media (min-width: 961px) and (max-height: 720px) {
+  [data-product-dialog] .product-video {
     position: relative;
     top: auto;
   }
@@ -637,6 +725,10 @@
     padding: 25px 72px 27px 20px;
   }
 
+  [data-product-dialog] .product-modal__header {
+    padding: 15px 62px 17px 18px;
+  }
+
   .product-modal h2 {
     margin-bottom: 12px;
     font-size: clamp(29px, 9vw, 40px);
@@ -645,12 +737,22 @@
     word-break: normal;
   }
 
+  [data-product-dialog] h2 {
+    margin-bottom: 0;
+    font-size: clamp(24px, 7.4vw, 32px);
+    line-height: 1.06;
+  }
+
   .product-modal__lead {
     font-size: 13px;
   }
 
   .product-modal__meta {
     margin-bottom: 13px;
+  }
+
+  [data-product-dialog] .product-modal__meta {
+    margin-bottom: 6px;
   }
 
   .product-modal__count {
@@ -676,6 +778,24 @@
     right: 18px;
     width: 44px;
     height: 44px;
+  }
+
+  [data-product-dialog] .product-modal__close {
+    top: 13px;
+    right: 13px;
+    width: 44px;
+    height: 44px;
+  }
+
+  [data-product-dialog] .product-item__copy > p {
+    font-size: 15px;
+    line-height: 1.78;
+  }
+
+  [data-product-dialog] .product-video__caption {
+    flex-wrap: wrap;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
   }
 
   .product-modal__body {

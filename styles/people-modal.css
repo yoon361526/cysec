@@ -12,6 +12,7 @@
   display: grid;
   align-content: start;
   gap: 22px;
+  scrollbar-gutter: stable;
 }
 
 .people-modal__intro {
@@ -41,15 +42,16 @@
 .faculty-grid {
   display: grid;
   min-width: 0;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
 }
 
 .faculty-profile {
   position: relative;
   display: grid;
   min-width: 0;
-  grid-template-columns: minmax(210px, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: clamp(220px, 27%, 300px) minmax(0, 1fr);
+  align-items: center;
   gap: clamp(24px, 3vw, 42px);
   overflow: hidden;
   padding: clamp(18px, 2vw, 26px);
@@ -84,8 +86,10 @@
 .faculty-profile__photo {
   position: relative;
   display: grid;
+  width: 100%;
   min-width: 0;
   aspect-ratio: 4 / 5;
+  justify-self: stretch;
   place-content: center;
   justify-items: center;
   gap: 18px;
@@ -290,6 +294,7 @@
 
   .faculty-profile {
     grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
     gap: 24px;
     padding: 18px;
     border-radius: 18px;

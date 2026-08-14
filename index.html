@@ -12,7 +12,7 @@
     <title>CySec Lab — Main</title>
 
     <link rel="icon" href="assets/Daegu_Univ_Logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260814-2" />
+    <link rel="stylesheet" href="styles.css?v=20260814-9" />
   </head>
 
   <body class="home-page">
@@ -495,9 +495,11 @@ Once an experiment ends, you can review participating accounts, generated posts,
       </dialog>
 
       <!--
-        RESEARCH MODAL / 연구 실적
-        아래 research-category 카드 세 개는 서로 독립적입니다.
-        노출 순서를 정한 뒤 article 블록의 위치만 바꾸면 됩니다.
+        RESEARCH MODAL / 연구 실적 사용법
+        1. 카테고리는 Achievements → Journals → Patents 순서로 노출됩니다.
+        2. 기록을 추가하려면 해당 research-record-list 안의 research-record article 전체를 복사하세요.
+        3. 사진이 있는 기록에만 research-record__media figure를 추가하세요. 사진이 없으면 figure를 생략하면 됩니다.
+        4. 상세 페이지나 DOI 링크가 필요할 때만 research-record__link를 추가하세요.
       -->
       <dialog
         class="product-modal research-modal"
@@ -523,7 +525,7 @@ Once an experiment ends, you can review participating accounts, generated posts,
               </div>
               <h2 id="research-modal-title">Research</h2>
               <p class="product-modal__lead" id="research-modal-description">
-                Patents, publications, and projects will be organized in this archive.
+                Explore our research achievements, journal publications, and patents.
               </p>
             </div>
 
@@ -539,50 +541,162 @@ Once an experiment ends, you can review participating accounts, generated posts,
 
           <div class="product-modal__body research-modal__body">
             <div class="research-modal__intro">
-              <p>RESEARCH CATEGORIES</p>
-              <span>Each category is ready for its research records.</span>
+              <p>SELECT A CATEGORY</p>
+              <span>Open a category to browse individual records.</span>
             </div>
 
             <section class="research-category-grid" aria-label="Research outcome categories">
-              <!-- 실제 내용을 넣을 때 각 카드의 research-category__slot을 교체하면 됩니다. -->
-              <article class="research-category" data-research-category="patents">
-                <header class="research-category__header">
-                  <p>PATENT PORTFOLIO</p>
-                  <h3>Patents</h3>
-                  <span lang="ko">특허</span>
-                </header>
-                <div class="research-category__slot">
-                  <span class="research-category__slot-icon" aria-hidden="true">＋</span>
-                  <strong>Ready for patent records</strong>
-                  <p>Title · Application or registration number · Status · Year</p>
-                </div>
-              </article>
+              <!--
+                선택 이미지 사용 예시:
+                사진이 있는 research-record의 맨 앞에 아래 figure 블록을 추가하세요.
+                사진이 없다면 figure 블록을 넣지 않아도 레이아웃이 자동으로 맞춰집니다.
 
-              <article class="research-category" data-research-category="publications">
-                <header class="research-category__header">
-                  <p>PUBLICATION ARCHIVE</p>
-                  <h3>Publications</h3>
-                  <span lang="ko">논문</span>
-                </header>
-                <div class="research-category__slot">
-                  <span class="research-category__slot-icon" aria-hidden="true">＋</span>
-                  <strong>Ready for publication records</strong>
-                  <p>Paper title · Journal or conference · Authors · Year · Link</p>
-                </div>
-              </article>
+                <figure class="research-record__media">
+                  <img
+                    src="assets/images/research/example.jpg"
+                    alt="해당 연구 실적 사진에 대한 설명"
+                    loading="lazy"
+                  />
+                  <figcaption>사진 설명 또는 출처</figcaption>
+                </figure>
 
-              <article class="research-category" data-research-category="projects">
-                <header class="research-category__header">
-                  <p>PROJECT RECORDS</p>
-                  <h3>Projects</h3>
-                  <span lang="ko">프로젝트</span>
-                </header>
-                <div class="research-category__slot">
-                  <span class="research-category__slot-icon" aria-hidden="true">＋</span>
-                  <strong>Ready for project records</strong>
-                  <p>Project title · Period · Institution · Role · Summary</p>
+                선택 링크 사용 예시:
+                <a class="research-record__link" href="상세 페이지 주소" target="_blank" rel="noreferrer">
+                  View details
+                </a>
+              -->
+              <details class="research-category" data-research-category="achievements">
+                <summary class="research-category__summary">
+                  <span class="research-category__number">01</span>
+                  <span class="research-category__heading">
+                    <small>RESEARCH OUTCOMES</small>
+                    <strong id="research-achievements-title" role="heading" aria-level="3">Achievements</strong>
+                    <span>Projects, awards, and major milestones</span>
+                  </span>
+                  <span class="research-category__toggle" aria-hidden="true"></span>
+                </summary>
+
+                <div
+                  class="research-category__content"
+                  role="region"
+                  aria-labelledby="research-achievements-title"
+                >
+                  <div class="research-record-list">
+                    <!-- 아래 article 전체를 복사하면 실적을 여러 개 추가할 수 있습니다. -->
+                    <article class="research-record">
+                      <div class="research-record__copy">
+                        <div class="research-record__meta">
+                          <time datetime="2026">2026</time>
+                          <span>RESEARCH PROJECT</span>
+                        </div>
+                        <h4>Selected Research Achievement</h4>
+                        <p>
+                          Add a concise overview of the work, its contribution, and the resulting
+                          impact or measurable outcome.
+                        </p>
+                        <dl class="research-record__facts">
+                          <div>
+                            <dt>Organization</dt>
+                            <dd>Organization or funding institution</dd>
+                          </div>
+                          <div>
+                            <dt>Role / Outcome</dt>
+                            <dd>Research role and principal outcome</dd>
+                          </div>
+                        </dl>
+                      </div>
+                    </article>
+
+                    <article class="research-record">
+                      <div class="research-record__copy">
+                        <div class="research-record__meta">
+                          <time datetime="2025">2025</time>
+                          <span>AWARD / MILESTONE</span>
+                        </div>
+                        <h4>Additional Research Achievement</h4>
+                        <p>
+                          Duplicate this card for every additional project, award, collaboration,
+                          or research milestone.
+                        </p>
+                      </div>
+                    </article>
+                  </div>
                 </div>
-              </article>
+              </details>
+
+              <details class="research-category" data-research-category="journals">
+                <summary class="research-category__summary">
+                  <span class="research-category__number">02</span>
+                  <span class="research-category__heading">
+                    <small>PUBLICATION ARCHIVE</small>
+                    <strong id="research-journals-title" role="heading" aria-level="3">Journals</strong>
+                    <span>Peer-reviewed journal publications</span>
+                  </span>
+                  <span class="research-category__toggle" aria-hidden="true"></span>
+                </summary>
+
+                <div
+                  class="research-category__content"
+                  role="region"
+                  aria-labelledby="research-journals-title"
+                >
+                  <div class="research-record-list">
+                    <!-- 논문을 추가할 때 아래 article 전체를 복사하세요. -->
+                    <article class="research-record">
+                      <div class="research-record__copy">
+                        <div class="research-record__meta">
+                          <time datetime="2026">2026</time>
+                          <span>JOURNAL NAME · VOL. 00, NO. 0</span>
+                        </div>
+                        <h4>Title of the Journal Article</h4>
+                        <p class="research-record__authors">Author Name, Co-author Name</p>
+                        <p>
+                          Add a short summary of the article, its research question, and its main
+                          contribution.
+                        </p>
+                        <!-- DOI나 논문 페이지가 있으면 이 위치에 research-record__link를 추가하세요. -->
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </details>
+
+              <details class="research-category" data-research-category="patents">
+                <summary class="research-category__summary">
+                  <span class="research-category__number">03</span>
+                  <span class="research-category__heading">
+                    <small>INTELLECTUAL PROPERTY</small>
+                    <strong id="research-patents-title" role="heading" aria-level="3">Patents</strong>
+                    <span>Patent applications and registrations</span>
+                  </span>
+                  <span class="research-category__toggle" aria-hidden="true"></span>
+                </summary>
+
+                <div
+                  class="research-category__content"
+                  role="region"
+                  aria-labelledby="research-patents-title"
+                >
+                  <div class="research-record-list">
+                    <!-- 특허를 추가할 때 아래 article 전체를 복사하세요. -->
+                    <article class="research-record">
+                      <div class="research-record__copy">
+                        <div class="research-record__meta">
+                          <time datetime="2026">2026</time>
+                          <span>KR 10-0000000 · GRANTED</span>
+                        </div>
+                        <h4>Title of the Patent</h4>
+                        <p class="research-record__authors">Inventor Name, Co-inventor Name</p>
+                        <p>
+                          Add a concise description of the invention, its technical value, and its
+                          current application or registration status.
+                        </p>
+                        <!-- 특허 상세 페이지가 있으면 이 위치에 research-record__link를 추가하세요. -->
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </details>
             </section>
           </div>
         </div>
@@ -666,6 +780,60 @@ Once an experiment ends, you can review participating accounts, generated posts,
                   </div>
                 </div>
               </article>
+              <article class="faculty-profile" aria-labelledby="faculty-slot-2-title">
+                <div class="faculty-profile__photo">
+                  <span class="faculty-profile__photo-mark" aria-hidden="true"></span>
+                  <span aria-hidden="true">PORTRAIT / 4:5</span>
+                </div>
+
+                <div class="faculty-profile__content">
+                  <header class="faculty-profile__header">
+                    <p>FACULTY PROFILE</p>
+                    <h3 id="faculty-slot-2-title">Professor Name</h3>
+                    <span>Position · Department</span>
+                  </header>
+
+                  <div class="faculty-profile__bio">
+                    <small>INTRODUCTION</small>
+                    <p>
+                      Add a short introduction, academic background, major research interests,
+                      and current activities in this space.
+                    </p>
+                  </div>
+
+                  <div class="faculty-profile__fields">
+                    <small>RESEARCH AREAS</small>
+                    <p>Research area · Research area · Research area</p>
+                  </div>
+                </div>
+              </article>
+              <article class="faculty-profile" aria-labelledby="faculty-slot-3-title">
+                <div class="faculty-profile__photo">
+                  <span class="faculty-profile__photo-mark" aria-hidden="true"></span>
+                  <span aria-hidden="true">PORTRAIT / 4:5</span>
+                </div>
+
+                <div class="faculty-profile__content">
+                  <header class="faculty-profile__header">
+                    <p>FACULTY PROFILE</p>
+                    <h3 id="faculty-slot-3-title">Professor Name</h3>
+                    <span>Position · Department</span>
+                  </header>
+
+                  <div class="faculty-profile__bio">
+                    <small>INTRODUCTION</small>
+                    <p>
+                      Add a short introduction, academic background, major research interests,
+                      and current activities in this space.
+                    </p>
+                  </div>
+
+                  <div class="faculty-profile__fields">
+                    <small>RESEARCH AREAS</small>
+                    <p>Research area · Research area · Research area</p>
+                  </div>
+                </div>
+              </article>
             </section>
           </div>
         </div>
@@ -694,15 +862,15 @@ Once an experiment ends, you can review participating accounts, generated posts,
             <button
               class="lab-link lab-link--button"
               type="button"
-              data-research-open
+              data-people-open
               aria-haspopup="dialog"
-              aria-controls="research-dialog"
+              aria-controls="people-dialog"
             >
               <span class="lab-link__index">01</span>
               <span>
-                <small>OUTCOMES</small>
-                <strong>Research</strong>
-                <span>Patents, publications, and projects</span>
+                <small>MEMBERS</small>
+                <strong>People</strong>
+                <span>Faculty members and their research areas</span>
               </span>
               <span class="lab-link__arrow" aria-hidden="true">＋</span>
             </button>
@@ -710,15 +878,15 @@ Once an experiment ends, you can review participating accounts, generated posts,
             <button
               class="lab-link lab-link--button"
               type="button"
-              data-people-open
+              data-research-open
               aria-haspopup="dialog"
-              aria-controls="people-dialog"
+              aria-controls="research-dialog"
             >
               <span class="lab-link__index">02</span>
               <span>
-                <small>RESEARCHERS</small>
-                <strong>People</strong>
-                <span>Faculty profiles and research areas</span>
+                <small>OUTCOMES</small>
+                <strong>Research</strong>
+                <span>Achievements, journals, and patents</span>
               </span>
               <span class="lab-link__arrow" aria-hidden="true">＋</span>
             </button>
