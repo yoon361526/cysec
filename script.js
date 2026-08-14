@@ -111,6 +111,72 @@ if (productDialog) {
 
 }
 
+/* 연구 실적 모달: 하단 Research 카드에서 열고 닫습니다. */
+const researchDialog = document.querySelector("[data-research-dialog]");
+
+if (researchDialog) {
+  const closeButton = researchDialog.querySelector("[data-research-close]");
+  const researchBody = researchDialog.querySelector(".research-modal__body");
+  let researchOpener;
+
+  document.querySelectorAll("[data-research-open]").forEach((button) => {
+    button.addEventListener("click", () => {
+      researchOpener = button;
+      document.body.classList.add("research-modal-open");
+      researchDialog.showModal();
+      researchBody.scrollTop = 0;
+    });
+  });
+
+  closeButton?.addEventListener("click", () => {
+    researchDialog.close();
+  });
+
+  researchDialog.addEventListener("click", (event) => {
+    if (event.target === researchDialog) {
+      researchDialog.close();
+    }
+  });
+
+  researchDialog.addEventListener("close", () => {
+    document.body.classList.remove("research-modal-open");
+    researchOpener?.focus();
+  });
+}
+
+/* 교수진 소개 모달: 하단 People 카드에서 열고 닫습니다. */
+const peopleDialog = document.querySelector("[data-people-dialog]");
+
+if (peopleDialog) {
+  const closeButton = peopleDialog.querySelector("[data-people-close]");
+  const peopleBody = peopleDialog.querySelector(".people-modal__body");
+  let peopleOpener;
+
+  document.querySelectorAll("[data-people-open]").forEach((button) => {
+    button.addEventListener("click", () => {
+      peopleOpener = button;
+      document.body.classList.add("people-modal-open");
+      peopleDialog.showModal();
+      peopleBody.scrollTop = 0;
+    });
+  });
+
+  closeButton?.addEventListener("click", () => {
+    peopleDialog.close();
+  });
+
+  peopleDialog.addEventListener("click", (event) => {
+    if (event.target === peopleDialog) {
+      peopleDialog.close();
+    }
+  });
+
+  peopleDialog.addEventListener("close", () => {
+    document.body.classList.remove("people-modal-open");
+    peopleOpener?.focus();
+  });
+}
+
 /* 연구 분야 배경: 마우스 위치를 따라 그래픽 레이어가 부드럽게 이동합니다. */
 const researchVisualCards = document.querySelectorAll("[data-research-visual]");
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");

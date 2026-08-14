@@ -12,13 +12,15 @@
 ```text
 Labweb/
 ├─ index.html                    # 화면 구조, 연구 분야·제품·연구실 콘텐츠
-├─ script.js                    # 제품 모달, 영상 제어, 패럴랙스, 스크롤 등장 효과
+├─ script.js                    # 제품·연구·교수진 모달, 영상 제어, 패럴랙스, 스크롤 등장 효과
 ├─ styles.css                   # 이전 Live Preview 호환용 CSS 진입점
 ├─ styles/
 │  ├─ base.css                  # 색상 변수, 기본 리셋, 포커스·모션 접근성
 │  ├─ layout.css                # 헤더와 푸터
 │  ├─ featured.css              # 상단 연구 분야 카드, SVG 애니메이션, 스크롤 화살표
 │  ├─ product-modal.css         # 제품 소개 모달과 영상 카드
+│  ├─ research-modal.css        # 특허·논문·프로젝트 연구 실적 모달
+│  ├─ people-modal.css          # 교수 사진과 소개용 교수진 모달
 │  └─ lab-intro.css             # Welcome 영역과 연구실 링크
 └─ assets/
    ├─ Daegu_Univ_Logo.svg       # 파비콘과 Welcome 로고

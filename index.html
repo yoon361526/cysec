@@ -12,7 +12,7 @@
     <title>CySec Lab — Main</title>
 
     <link rel="icon" href="assets/Daegu_Univ_Logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260814-2" />
   </head>
 
   <body class="home-page">
@@ -494,6 +494,183 @@ Once an experiment ends, you can review participating accounts, generated posts,
         </div>
       </dialog>
 
+      <!--
+        RESEARCH MODAL / 연구 실적
+        아래 research-category 카드 세 개는 서로 독립적입니다.
+        노출 순서를 정한 뒤 article 블록의 위치만 바꾸면 됩니다.
+      -->
+      <dialog
+        class="product-modal research-modal"
+        id="research-dialog"
+        data-research-dialog
+        data-theme="research"
+        aria-labelledby="research-modal-title"
+        aria-describedby="research-modal-description"
+      >
+        <div class="product-modal__shell">
+          <header class="product-modal__header">
+            <div class="product-modal__visual" aria-hidden="true">
+              <span class="product-modal__visual-grid"></span>
+              <span class="product-modal__visual-orbit"></span>
+              <span class="product-modal__visual-core"></span>
+              <span class="product-modal__visual-signal"></span>
+            </div>
+
+            <div class="product-modal__header-copy">
+              <div class="product-modal__meta">
+                <p class="product-modal__eyebrow">RESEARCH OUTCOMES</p>
+                <span class="product-modal__count">03 CATEGORIES</span>
+              </div>
+              <h2 id="research-modal-title">Research</h2>
+              <p class="product-modal__lead" id="research-modal-description">
+                Patents, publications, and projects will be organized in this archive.
+              </p>
+            </div>
+
+            <button
+              class="product-modal__close"
+              type="button"
+              data-research-close
+              aria-label="Close research"
+            >
+              ×
+            </button>
+          </header>
+
+          <div class="product-modal__body research-modal__body">
+            <div class="research-modal__intro">
+              <p>RESEARCH CATEGORIES</p>
+              <span>Each category is ready for its research records.</span>
+            </div>
+
+            <section class="research-category-grid" aria-label="Research outcome categories">
+              <!-- 실제 내용을 넣을 때 각 카드의 research-category__slot을 교체하면 됩니다. -->
+              <article class="research-category" data-research-category="patents">
+                <header class="research-category__header">
+                  <p>PATENT PORTFOLIO</p>
+                  <h3>Patents</h3>
+                  <span lang="ko">특허</span>
+                </header>
+                <div class="research-category__slot">
+                  <span class="research-category__slot-icon" aria-hidden="true">＋</span>
+                  <strong>Ready for patent records</strong>
+                  <p>Title · Application or registration number · Status · Year</p>
+                </div>
+              </article>
+
+              <article class="research-category" data-research-category="publications">
+                <header class="research-category__header">
+                  <p>PUBLICATION ARCHIVE</p>
+                  <h3>Publications</h3>
+                  <span lang="ko">논문</span>
+                </header>
+                <div class="research-category__slot">
+                  <span class="research-category__slot-icon" aria-hidden="true">＋</span>
+                  <strong>Ready for publication records</strong>
+                  <p>Paper title · Journal or conference · Authors · Year · Link</p>
+                </div>
+              </article>
+
+              <article class="research-category" data-research-category="projects">
+                <header class="research-category__header">
+                  <p>PROJECT RECORDS</p>
+                  <h3>Projects</h3>
+                  <span lang="ko">프로젝트</span>
+                </header>
+                <div class="research-category__slot">
+                  <span class="research-category__slot-icon" aria-hidden="true">＋</span>
+                  <strong>Ready for project records</strong>
+                  <p>Project title · Period · Institution · Role · Summary</p>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </dialog>
+
+      <!--
+        PEOPLE MODAL / 교수진 소개
+        faculty-profile article을 교수진 수만큼 복사해서 사용할 수 있습니다.
+        사진을 넣을 때 faculty-profile__photo 안의 placeholder를 img로 교체하세요.
+      -->
+      <dialog
+        class="product-modal people-modal"
+        id="people-dialog"
+        data-people-dialog
+        data-theme="people"
+        aria-labelledby="people-modal-title"
+        aria-describedby="people-modal-description"
+      >
+        <div class="product-modal__shell">
+          <header class="product-modal__header">
+            <div class="product-modal__visual" aria-hidden="true">
+              <span class="product-modal__visual-grid"></span>
+              <span class="product-modal__visual-orbit"></span>
+              <span class="product-modal__visual-core"></span>
+              <span class="product-modal__visual-signal"></span>
+            </div>
+
+            <div class="product-modal__header-copy">
+              <div class="product-modal__meta">
+                <p class="product-modal__eyebrow">FACULTY DIRECTORY</p>
+                <span class="product-modal__count">FACULTY PROFILES</span>
+              </div>
+              <h2 id="people-modal-title">People</h2>
+              <p class="product-modal__lead" id="people-modal-description">
+                Faculty profiles, introductions, and research interests will be presented here.
+              </p>
+            </div>
+
+            <button
+              class="product-modal__close"
+              type="button"
+              data-people-close
+              aria-label="Close people"
+            >
+              ×
+            </button>
+          </header>
+
+          <div class="product-modal__body people-modal__body">
+            <div class="people-modal__intro">
+              <p>FACULTY PROFILES</p>
+              <span>Portrait and introduction spaces are ready for each faculty member.</span>
+            </div>
+
+            <section class="faculty-grid" aria-label="Faculty profiles">
+              <!-- 교수진을 추가할 때 아래 faculty-profile article 전체를 복사하세요. -->
+              <article class="faculty-profile" aria-labelledby="faculty-slot-1-title">
+                <div class="faculty-profile__photo">
+                  <span class="faculty-profile__photo-mark" aria-hidden="true"></span>
+                  <span aria-hidden="true">PORTRAIT / 4:5</span>
+                </div>
+
+                <div class="faculty-profile__content">
+                  <header class="faculty-profile__header">
+                    <p>FACULTY PROFILE</p>
+                    <h3 id="faculty-slot-1-title">Professor Name</h3>
+                    <span>Position · Department</span>
+                  </header>
+
+                  <div class="faculty-profile__bio">
+                    <small>INTRODUCTION</small>
+                    <p>
+                      Add a short introduction, academic background, major research interests,
+                      and current activities in this space.
+                    </p>
+                  </div>
+
+                  <div class="faculty-profile__fields">
+                    <small>RESEARCH AREAS</small>
+                    <p>Research area · Research area · Research area</p>
+                  </div>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </dialog>
+
       <section class="lab-intro" aria-labelledby="lab-intro-title">
         <img class="daegu_logo" src="assets/Daegu_Univ_Logo.svg">
         <img
@@ -513,27 +690,39 @@ Once an experiment ends, you can review participating accounts, generated posts,
             We explore the future of Cybersecurity. through innovative research.
           </p>
 
-          <nav class="lab-links" aria-label="Lab detail pages">
-            <a class="lab-link" href="https://sites.google.com/view/jykdu">
+          <div class="lab-links">
+            <button
+              class="lab-link lab-link--button"
+              type="button"
+              data-research-open
+              aria-haspopup="dialog"
+              aria-controls="research-dialog"
+            >
               <span class="lab-link__index">01</span>
               <span>
                 <small>OUTCOMES</small>
                 <strong>Research</strong>
-                <span>Publications, projects, and key activities</span>
+                <span>Patents, publications, and projects</span>
               </span>
-              <span class="lab-link__arrow" aria-hidden="true">↗</span>
-            </a>
+              <span class="lab-link__arrow" aria-hidden="true">＋</span>
+            </button>
 
-            <a class="lab-link" href="https://ce.daegu.ac.kr/professor/list">
+            <button
+              class="lab-link lab-link--button"
+              type="button"
+              data-people-open
+              aria-haspopup="dialog"
+              aria-controls="people-dialog"
+            >
               <span class="lab-link__index">02</span>
               <span>
                 <small>RESEARCHERS</small>
                 <strong>People</strong>
-                <span>Members and their research areas</span>
+                <span>Faculty profiles and research areas</span>
               </span>
-              <span class="lab-link__arrow" aria-hidden="true">↗</span>
-            </a>
-          </nav>
+              <span class="lab-link__arrow" aria-hidden="true">＋</span>
+            </button>
+          </div>
         </div>
       </section>
     </main>
@@ -544,6 +733,6 @@ Once an experiment ends, you can review participating accounts, generated posts,
       <p>© <span data-year>2026</span> CySec Lab, Daegu University, Gyeongsan, South Korea</p>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20260814-2" defer></script>
   </body>
 </html>
