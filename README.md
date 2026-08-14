@@ -34,3 +34,7 @@ Labweb/
 ## 제품 영상
 
 영상 경로와 파일명은 `index.html`의 `<source>` 요소에서 관리합니다. 현재 연결된 영상은 `assets/videos/README.md`에 정리되어 있습니다.
+
+
+교수님들 사진 넣기
+사진 labweb/assets/images/교수님성함.jpg

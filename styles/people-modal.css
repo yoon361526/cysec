@@ -29,14 +29,14 @@
 
 .people-modal__intro p {
   color: rgb(var(--modal-accent));
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.16em;
 }
 
 .people-modal__intro span {
   color: #7f8da5;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .faculty-grid {
@@ -103,7 +103,7 @@
     radial-gradient(circle at 50% 38%, rgb(var(--modal-accent) / 0.13), transparent 31%),
     rgb(4 9 20 / 0.84);
   background-size: 32px 32px, 32px 32px, auto, auto;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.14em;
 }
@@ -183,7 +183,7 @@
 .faculty-profile__header p {
   margin-bottom: 14px;
   color: rgb(var(--modal-accent));
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.16em;
 }
@@ -201,7 +201,7 @@
   display: block;
   margin-top: 11px;
   color: #8d9ab0;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -218,7 +218,7 @@
   display: block;
   margin-bottom: 13px;
   color: rgb(var(--modal-accent-secondary));
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.15em;
 }
@@ -227,7 +227,7 @@
   max-width: 58ch;
   margin: 0;
   color: #8d9ab0;
-  font-size: clamp(13px, 1.1vw, 15px);
+  font-size: clamp(15px, 1.25vw, 17px);
   line-height: 1.78;
   text-wrap: pretty;
 }
@@ -241,7 +241,7 @@
   display: block;
   margin-bottom: 8px;
   color: rgb(var(--modal-accent));
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.15em;
 }
@@ -249,7 +249,7 @@
 .faculty-profile__fields p {
   margin: 0;
   color: #8d9ab0;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.65;
   overflow-wrap: anywhere;
 }
