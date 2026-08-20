@@ -575,20 +575,6 @@
   font-size: 0.8em;
 }
 
-.professor-publication h5 a span[lang="ko"] {
-  margin-left: 0;
-  color: inherit;
-  font-size: inherit;
-}
-
-.professor-publication .professor-publication__translation {
-  margin: -2px 0 0;
-  color: #8fa1b8;
-  font-size: 10px;
-  font-style: italic;
-  line-height: 1.65;
-}
-
 .professor-publication .professor-publication__details {
   display: flex;
   align-items: center;
