@@ -12,7 +12,7 @@
     <title>CySec Lab — Main</title>
 
     <link rel="icon" href="assets/Daegu_Univ_Logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20260814-9" />
+    <link rel="stylesheet" href="styles.css?v=20260820-11" />
   </head>
 
   <body class="home-page">
@@ -495,341 +495,837 @@ Once an experiment ends, you can review participating accounts, generated posts,
       </dialog>
 
       <!--
-        RESEARCH MODAL / 연구 실적 사용법
-        1. 카테고리는 Achievements → Journals → Patents 순서로 노출됩니다.
-        2. 기록을 추가하려면 해당 research-record-list 안의 research-record article 전체를 복사하세요.
-        3. 사진이 있는 기록에만 research-record__media figure를 추가하세요. 사진이 없으면 figure를 생략하면 됩니다.
-        4. 상세 페이지나 DOI 링크가 필요할 때만 research-record__link를 추가하세요.
+        PROFESSOR MODAL / 교수별 소개
+        1. 교수 사진은 professor-profile__photo 안의 img src 경로를 교체하세요.
+        2. 교수별 Projects, Publications, Patents 항목은 해당 카드 안에서 수정하세요.
+        3. 교수 프로필을 추가할 때는 버튼과 professor-profile article을 함께 복사하세요.
       -->
       <dialog
-        class="product-modal research-modal"
-        id="research-dialog"
-        data-research-dialog
-        data-theme="research"
-        aria-labelledby="research-modal-title"
-        aria-describedby="research-modal-description"
+        class="product-modal professor-modal"
+        id="professor-dialog"
+        data-professor-dialog
+        data-theme="professor"
+        aria-labelledby="professor-1-name"
+        aria-describedby="professor-1-description"
       >
-        <div class="product-modal__shell">
-          <header class="product-modal__header">
-            <div class="product-modal__visual" aria-hidden="true">
-              <span class="product-modal__visual-grid"></span>
-              <span class="product-modal__visual-orbit"></span>
-              <span class="product-modal__visual-core"></span>
-              <span class="product-modal__visual-signal"></span>
-            </div>
+        <div class="professor-modal__shell">
+          <button
+            class="product-modal__close professor-modal__close"
+            type="button"
+            data-professor-close
+            aria-label="교수 소개 닫기"
+          >
+            ×
+          </button>
 
-            <div class="product-modal__header-copy">
-              <div class="product-modal__meta">
-                <p class="product-modal__eyebrow">RESEARCH OUTCOMES</p>
-                <span class="product-modal__count">03 CATEGORIES</span>
+          <article
+            class="professor-profile"
+            data-professor-profile="professor-1"
+            aria-labelledby="professor-1-name"
+          >
+            <header class="professor-profile__hero">
+              <div class="professor-profile__identity">
+                <h2 id="professor-1-name">Jiyeon Kim</h2>
+                <p class="professor-profile__position">Daegu University</p>
+                <p class="professor-profile__description" id="professor-1-description">
+                  Cybersecurity, Digital Forensics, AI-Integrated Security, and Cloud & IoT Security
+                </p>
               </div>
-              <h2 id="research-modal-title">Research</h2>
-              <p class="product-modal__lead" id="research-modal-description">
-                Explore our research achievements, journal publications, and patents.
-              </p>
-            </div>
 
-            <button
-              class="product-modal__close"
-              type="button"
-              data-research-close
-              aria-label="Close research"
-            >
-              ×
-            </button>
-          </header>
+              <figure class="professor-profile__photo">
+                <img
+                  src="assets/images/kimjy.jpg"
+                  alt="교수 1 사진"
+                  width="800"
+                  height="1000"
+                />
+              </figure>
+            </header>
 
-          <div class="product-modal__body research-modal__body">
-            <div class="research-modal__intro">
-              <p>SELECT A CATEGORY</p>
-              <span>Open a category to browse individual records.</span>
-            </div>
-
-            <section class="research-category-grid" aria-label="Research outcome categories">
-              <!--
-                선택 이미지 사용 예시:
-                사진이 있는 research-record의 맨 앞에 아래 figure 블록을 추가하세요.
-                사진이 없다면 figure 블록을 넣지 않아도 레이아웃이 자동으로 맞춰집니다.
-
-                <figure class="research-record__media">
-                  <img
-                    src="assets/images/research/example.jpg"
-                    alt="해당 연구 실적 사진에 대한 설명"
-                    loading="lazy"
-                  />
-                  <figcaption>사진 설명 또는 출처</figcaption>
-                </figure>
-
-                선택 링크 사용 예시:
-                <a class="research-record__link" href="상세 페이지 주소" target="_blank" rel="noreferrer">
-                  View details
-                </a>
-              -->
-              <details class="research-category" data-research-category="achievements">
-                <summary class="research-category__summary">
-                  <span class="research-category__number">01</span>
-                  <span class="research-category__heading">
-                    <small>RESEARCH OUTCOMES</small>
-                    <strong id="research-achievements-title" role="heading" aria-level="3">Achievements</strong>
-                    <span>Projects, awards, and major milestones</span>
-                  </span>
-                  <span class="research-category__toggle" aria-hidden="true"></span>
-                </summary>
-
-                <div
-                  class="research-category__content"
-                  role="region"
-                  aria-labelledby="research-achievements-title"
-                >
-                  <div class="research-record-list">
-                    <!-- 아래 article 전체를 복사하면 실적을 여러 개 추가할 수 있습니다. -->
-                    <article class="research-record">
-                      <div class="research-record__copy">
-                        <div class="research-record__meta">
-                          <time datetime="2026">2026</time>
-                          <span>RESEARCH PROJECT</span>
-                        </div>
-                        <h4>Selected Research Achievement</h4>
-                        <p>
-                          Add a concise overview of the work, its contribution, and the resulting
-                          impact or measurable outcome.
+            <div class="professor-profile__body">
+              <section class="professor-category-grid" aria-label="교수 1 연구 실적">
+                <details class="professor-category professor-category--projects">
+                  <summary class="professor-category__summary">
+                    <span>01</span>
+                    <div>
+                      <h3>Projects</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <ol class="professor-project-list">
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2023-04">2023.04.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2025-12">2025.12.</time>
                         </p>
-                        <dl class="research-record__facts">
+                        <h4>
+                          Development of Active Dark Web Intelligence Collection, Analysis, and
+                          Tracking Technologies for Crime Prevention
+                        </h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>Korean National Police Agency</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2023-06">2023.06.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2023-12">2023.12.</time>
+                        </p>
+                        <h4>
+                          Strategies to Strengthen Information Security Capabilities and Improve
+                          Institutional Evaluations for Public Agencies under the Ministry of
+                          Science and ICT
+                        </h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>Ministry of Science and ICT</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2023-04">2023.04.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2023-10">2023.10.</time>
+                        </p>
+                        <h4>
+                          Research on Cloud Security and Zero Trust Strategies for Korea's Public
+                          Sector
+                        </h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>National Security Research Institute (NSR)</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2022-09">2022.09.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2022-11">2022.11.</time>
+                        </p>
+                        <h4>
+                          A Mid- to Long-Term Development Plan for Information Security Education
+                          Centers and Gifted Education Programs
+                        </h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>Korea Education and Research Information Service (KERIS)</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2022-03">2022.03.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2022-11">2022.11.</time>
+                        </p>
+                        <h4>Confidential Research Project</h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>Supreme Prosecutors' Office</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2022-04">2022.04.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2022-10">2022.10.</time>
+                        </p>
+                        <h4>
+                          Analysis of U.S. Public-Sector Cloud Security Strategies and Technology
+                          Architecture Trends
+                        </h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>National Security Research Institute (NSR)</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2022-04">2022.04.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2022-09">2022.09.</time>
+                        </p>
+                        <h4>
+                          Cloud Migration Consulting and Guidance Development for Educational and
+                          Administrative Institutions
+                        </h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>Ministry of Education</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2018-06">2018.06.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2021-11">2021.11.</time>
+                        </p>
+                        <h4>Development of a Performance-Metrics-Based Cloud Intrusion Detection System</h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>National Research Foundation of Korea (NRF)</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2021-04">2021.04.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2021-11">2021.11.</time>
+                        </p>
+                        <h4>Confidential Research Project</h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>Supreme Prosecutors' Office</strong>
+                        </p>
+                      </li>
+
+                      <li class="professor-project">
+                        <p class="professor-project__period">
+                          <time datetime="2021-04">2021.04.</time>
+                          <span aria-hidden="true">—</span>
+                          <time datetime="2021-10">2021.10.</time>
+                        </p>
+                        <h4>Research on Software Verification Methods for Cloud Operating Environments</h4>
+                        <p class="professor-project__funding">
+                          <span>Funded by</span>
+                          <strong>National Security Research Institute (NSR)</strong>
+                        </p>
+                      </li>
+                    </ol>
+                  </div>
+                </details>
+
+                <details class="professor-category professor-category--publications">
+                  <summary class="professor-category__summary">
+                    <span>02</span>
+                    <div>
+                      <h3>Publications</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <section
+                      class="professor-publication-group"
+                      aria-labelledby="professor-1-international-publications"
+                    >
+                      <header class="professor-publication-group__heading">
+                        <span>INTERNATIONAL</span>
+                        <h4 id="professor-1-international-publications">
+                          International Publications
+                        </h4>
+                      </header>
+
+                      <ol class="professor-publication-list">
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors">Sol-Kyu Park and Jiyeon Kim</p>
+                          <h5>
+                            <a
+                              href="https://ieeexplore.ieee.org/abstract/document/11535799"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Development of a Traffic Fingerprinting-Based Hidden Service Access
+                              Identification System for Dark Web Drug Investigations
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__details">
+                            <cite>IEEE Access</cite>
+                            <span>Vol. 14</span>
+                            <span>pp. 81323–81351</span>
+                            <time datetime="2026-05">May 2026</time>
+                            <span class="professor-publication__impact">IF 3.6</span>
+                          </p>
+                        </li>
+
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors">Jin Gyeong Kim and Jiyeon Kim</p>
+                          <h5>
+                            <a
+                              href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0344470"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Hybrid Text Mining Models for Investigative Keyword Expansion on
+                              Child Sexual Abuse in the Dark Web
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__details">
+                            <cite>PLOS ONE</cite>
+                            <span>Vol. 21, No. 5</span>
+                            <span>pp. 1–21</span>
+                            <time datetime="2026-05">May 2026</time>
+                            <span class="professor-publication__impact">IF 2.9</span>
+                          </p>
+                        </li>
+
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors">Dong-Won Kang and Jiyeon Kim</p>
+                          <h5>
+                            <a
+                              href="https://ieeexplore.ieee.org/document/11366852"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Identification of Criminal Networks via External Identifier-Based
+                              Clustering on the Dark Web
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__details">
+                            <cite>IEEE Access</cite>
+                            <span>Vol. 14</span>
+                            <span>pp. 15394–15413</span>
+                            <time datetime="2026-01">January 2026</time>
+                            <span class="professor-publication__impact">IF 3.6</span>
+                          </p>
+                        </li>
+
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors">
+                            Eun-Young Park, Hyeon-Woo Lee, and Jiyeon Kim
+                          </p>
+                          <h5>
+                            <a
+                              href="https://ieeexplore.ieee.org/abstract/document/11363471"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Hybrid GNN-Based Link Prediction Model for Identifying Drug-Related
+                              Organized Crime Groups on Twitter
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__details">
+                            <cite>IEEE Access</cite>
+                            <span>Vol. 14</span>
+                            <span>pp. 15044–15063</span>
+                            <time datetime="2026-01">January 2026</time>
+                            <span class="professor-publication__impact">IF 3.6</span>
+                          </p>
+                        </li>
+
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors">
+                            Hyeon-Woo Lee, Su-Bin Lee, and Jiyeon Kim
+                          </p>
+                          <h5>
+                            <a
+                              href="https://www.mdpi.com/2079-9292/15/1/162"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Development of Crawling and Knowledge Graph Technologies for
+                              Tracking Organized Sexual Offenses on Social Media X
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__details">
+                            <cite>Electronics</cite>
+                            <span>Vol. 15, No. 1, Article 162</span>
+                            <span>pp. 1–41</span>
+                            <time datetime="2026-01">January 2026</time>
+                            <span class="professor-publication__impact">IF 2.6</span>
+                          </p>
+                        </li>
+
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors">
+                            Da-Sol Kim, Jin-Woo Shin, and Dong-Won Kang
+                          </p>
+                          <h5>
+                            <a
+                              href="https://ieeexplore.ieee.org/document/11391049"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              A Comparative Security Analysis of Storage-Integrated Web
+                              Applications in Heterogeneous Cloud Environments
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__details">
+                            <cite>Proceedings of IEEE SNAMS 2025</cite>
+                            <span>pp. 30–37</span>
+                            <span>Vienna, Austria</span>
+                            <time datetime="2025-11">November 2025</time>
+                          </p>
+                        </li>
+                      </ol>
+                    </section>
+
+                    <section
+                      class="professor-publication-group professor-publication-group--domestic"
+                      aria-labelledby="professor-1-domestic-publications"
+                    >
+                      <header class="professor-publication-group__heading">
+                        <span>DOMESTIC</span>
+                        <h4 id="professor-1-domestic-publications">Domestic Publications</h4>
+                      </header>
+                      <ol class="professor-publication-list">
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors" lang="ko">
+                            이현우, 박은영, 김순철, 김지연
+                          </p>
+                          <h5>
+                            <a
+                              href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003305223"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <span lang="ko">믹싱 트랜잭션에 서브그래프 생성을 통한 GNN 기반 비트코인 믹싱 탐지 기술</span>
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__translation" lang="en">
+                            A GNN-Based Bitcoin Mixing Detection Method via Subgraph Generation of Mixing Transactions
+                          </p>
+                          <p class="professor-publication__details">
+                            <cite lang="ko">한국컴퓨터정보학회논문지</cite>
+                            <span>Vol. 31, No. 2</span>
+                            <span>pp. 139–151</span>
+                            <time datetime="2026-02">February 2026</time>
+                            <span>NRF Indexed Journal</span>
+                            <span class="professor-publication__impact">KCI</span>
+                          </p>
+                        </li>
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors" lang="ko">
+                            신진우, 강동원, 김지연
+                          </p>
+                          <h5>
+                            <a
+                              href="https://www.kci.go.kr/kciportal/mobile/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003280518"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <span lang="ko">다크웹 범죄 서비스 분류를 위한 머신러닝 기반 애플리케이션 계층 네트워크 핑거프린팅 연구</span>
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__translation" lang="en">
+                            Machine Learning-Based Application-Layer Network Fingerprinting for Dark Web Criminal Service Classification
+                          </p>
+                          <p class="professor-publication__details">
+                            <cite lang="ko">한국컴퓨터정보학회논문지</cite>
+                            <span>Vol. 30, No. 12</span>
+                            <span>pp. 195–204</span>
+                            <time datetime="2025-12">December 2025</time>
+                            <span>NRF Indexed Journal</span>
+                            <span class="professor-publication__impact">KCI</span>
+                          </p>
+                        </li>
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors" lang="ko">
+                            김진경, 박은영, 김다솔, 김초원, 김지연
+                          </p>
+                          <h5>
+                            <a
+                              href="https://koreascience.kr/article/JAKO202431953052886.page"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Development of a Model for Identifying Drug Organizations and Their Scale through Tweet Clustering
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__details">
+                            <cite lang="ko">한국컴퓨터정보학회논문지</cite>
+                            <span>Vol. 29, No. 10</span>
+                            <span>pp. 207–218</span>
+                            <time datetime="2024-10">October 2024</time>
+                            <span>NRF Indexed Journal</span>
+                            <span class="professor-publication__impact">KCI</span>
+                          </p>
+                        </li>
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors" lang="ko">
+                            박은영, 김지연, 김창훈
+                          </p>
+                          <h5>
+                            <a
+                              href="https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE11722653&amp;googleIPSandBox=false&amp;mark=0&amp;ipRange=false&amp;b2cLoginYN=false&amp;isPDFSizeAllowed=true&amp;accessgl=Y&amp;language=ko_KR&amp;hasTopBanner=true"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              A Tracking Method of Same Drug Sales Accounts through Similarity Analysis of Instagram Profiles and Posts
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__details">
+                            <cite lang="ko">한국컴퓨터정보학회논문지</cite>
+                            <span>Vol. 29, No. 2</span>
+                            <span>pp. 109–118</span>
+                            <time datetime="2024-02">February 2024</time>
+                            <span>NRF Indexed Journal</span>
+                            <span class="professor-publication__impact">KCI</span>
+                          </p>
+                        </li>
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors" lang="ko">
+                            조경현, 조재한, 이현우, 김지연
+                          </p>
+                          <h5>
+                            <a
+                              href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002951688"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <span lang="ko">Amazon S3 제로 트러스트 모델 설계 및 포렌식 분석</span>
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__translation" lang="en">
+                            Design and Forensic Analysis of a Zero Trust Model for Amazon S3
+                          </p>
+                          <p class="professor-publication__details">
+                            <cite lang="ko">정보보호학회논문지</cite>
+                            <span>Vol. 33, No. 2</span>
+                            <span>pp. 295–303</span>
+                            <time datetime="2023-04">April 2023</time>
+                            <span>NRF Indexed Journal</span>
+                            <span class="professor-publication__impact">KCI</span>
+                          </p>
+                        </li>
+                        <li class="professor-publication">
+                          <p class="professor-publication__authors" lang="ko">
+                            조재한, 박재민, 김태협, 이승욱, 김지연
+                          </p>
+                          <h5>
+                            <a
+                              href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002945802"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <span lang="ko">머신러닝 기반 클라우드 웹 애플리케이션 HTTP DoS 공격 탐지</span>
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </h5>
+                          <p class="professor-publication__translation" lang="en">
+                            Machine Learning-Based Detection of HTTP DoS Attacks for Cloud Web Applications
+                          </p>
+                          <p class="professor-publication__details">
+                            <cite lang="ko">스마트미디어저널</cite>
+                            <span>Vol. 12, No. 2</span>
+                            <span>pp. 66–75</span>
+                            <time datetime="2023-03">March 2023</time>
+                            <span>NRF Indexed Journal</span>
+                            <span class="professor-publication__impact">KCI</span>
+                          </p>
+                        </li>
+                      </ol>
+                    </section>
+                  </div>
+                </details>
+
+                <details class="professor-category professor-category--patents">
+                  <summary class="professor-category__summary">
+                    <span>03</span>
+                    <div>
+                      <h3>Patents</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <ol class="professor-patent-list">
+                      <li class="professor-patent">
+                        <header class="professor-patent__header">
+                          <span class="professor-patent__status professor-patent__status--granted">Granted</span>
+                          <time datetime="2026-06-19">June 19, 2026</time>
+                        </header>
+                        <p class="professor-patent__inventors">
+                          Eun-Young Park, Jiyeon Kim, and Chang-Hoon Kim
+                        </p>
+                        <h4>Method for Tracking Identical Drug Distribution Accounts through Similarity Analysis of Instagram Profiles and Posts</h4>
+                        <dl class="professor-patent__numbers">
                           <div>
-                            <dt>Organization</dt>
-                            <dd>Organization or funding institution</dd>
+                            <dt>Registration No.</dt>
+                            <dd>10-2981812</dd>
                           </div>
                           <div>
-                            <dt>Role / Outcome</dt>
-                            <dd>Research role and principal outcome</dd>
+                            <dt>Application No.</dt>
+                            <dd>10-2023-0196037</dd>
                           </div>
                         </dl>
-                      </div>
-                    </article>
-
-                    <article class="research-record">
-                      <div class="research-record__copy">
-                        <div class="research-record__meta">
-                          <time datetime="2025">2025</time>
-                          <span>AWARD / MILESTONE</span>
-                        </div>
-                        <h4>Additional Research Achievement</h4>
-                        <p>
-                          Duplicate this card for every additional project, award, collaboration,
-                          or research milestone.
+                      </li>
+                      <li class="professor-patent">
+                        <header class="professor-patent__header">
+                          <span class="professor-patent__status professor-patent__status--applied">Applied</span>
+                          <time datetime="2024-09-09">September 9, 2024</time>
+                        </header>
+                        <p class="professor-patent__inventors">
+                          Hyeon-Woo Lee, Su-Bin Lee, Jiyeon Kim, and Chang-Hoon Kim
                         </p>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-              </details>
-
-              <details class="research-category" data-research-category="journals">
-                <summary class="research-category__summary">
-                  <span class="research-category__number">02</span>
-                  <span class="research-category__heading">
-                    <small>PUBLICATION ARCHIVE</small>
-                    <strong id="research-journals-title" role="heading" aria-level="3">Journals</strong>
-                    <span>Peer-reviewed journal publications</span>
-                  </span>
-                  <span class="research-category__toggle" aria-hidden="true"></span>
-                </summary>
-
-                <div
-                  class="research-category__content"
-                  role="region"
-                  aria-labelledby="research-journals-title"
-                >
-                  <div class="research-record-list">
-                    <!-- 논문을 추가할 때 아래 article 전체를 복사하세요. -->
-                    <article class="research-record">
-                      <div class="research-record__copy">
-                        <div class="research-record__meta">
-                          <time datetime="2026">2026</time>
-                          <span>JOURNAL NAME · VOL. 00, NO. 0</span>
-                        </div>
-                        <h4>Title of the Journal Article</h4>
-                        <p class="research-record__authors">Author Name, Co-author Name</p>
-                        <p>
-                          Add a short summary of the article, its research question, and its main
-                          contribution.
+                        <h4>System and Method for Tracking Sexual Offense Organizations on Social Media</h4>
+                        <dl class="professor-patent__numbers">
+                          <div>
+                            <dt>Application No.</dt>
+                            <dd>10-2024-0122502</dd>
+                          </div>
+                        </dl>
+                      </li>
+                      <li class="professor-patent">
+                        <header class="professor-patent__header">
+                          <span class="professor-patent__status professor-patent__status--applied">Applied</span>
+                          <time datetime="2024-08-27">August 27, 2024</time>
+                        </header>
+                        <p class="professor-patent__inventors">
+                          Jin Gyeong Kim, Jiyeon Kim, and Chang-Hoon Kim
                         </p>
-                        <!-- DOI나 논문 페이지가 있으면 이 위치에 research-record__link를 추가하세요. -->
-                      </div>
-                    </article>
-                  </div>
-                </div>
-              </details>
-
-              <details class="research-category" data-research-category="patents">
-                <summary class="research-category__summary">
-                  <span class="research-category__number">03</span>
-                  <span class="research-category__heading">
-                    <small>INTELLECTUAL PROPERTY</small>
-                    <strong id="research-patents-title" role="heading" aria-level="3">Patents</strong>
-                    <span>Patent applications and registrations</span>
-                  </span>
-                  <span class="research-category__toggle" aria-hidden="true"></span>
-                </summary>
-
-                <div
-                  class="research-category__content"
-                  role="region"
-                  aria-labelledby="research-patents-title"
-                >
-                  <div class="research-record-list">
-                    <!-- 특허를 추가할 때 아래 article 전체를 복사하세요. -->
-                    <article class="research-record">
-                      <div class="research-record__copy">
-                        <div class="research-record__meta">
-                          <time datetime="2026">2026</time>
-                          <span>KR 10-0000000 · GRANTED</span>
-                        </div>
-                        <h4>Title of the Patent</h4>
-                        <p class="research-record__authors">Inventor Name, Co-inventor Name</p>
-                        <p>
-                          Add a concise description of the invention, its technical value, and its
-                          current application or registration status.
+                        <h4>System and Method for Collecting Child Sexual Abuse Clues on the Dark Web</h4>
+                        <dl class="professor-patent__numbers">
+                          <div>
+                            <dt>Application No.</dt>
+                            <dd>10-2024-0114836</dd>
+                          </div>
+                        </dl>
+                      </li>
+                      <li class="professor-patent">
+                        <header class="professor-patent__header">
+                          <span class="professor-patent__status professor-patent__status--applied">Applied</span>
+                          <time datetime="2024-06-20">June 20, 2024</time>
+                        </header>
+                        <p class="professor-patent__inventors">
+                          Dong-Won Kang, Jiyeon Kim, and Chang-Hoon Kim
                         </p>
-                        <!-- 특허 상세 페이지가 있으면 이 위치에 research-record__link를 추가하세요. -->
-                      </div>
-                    </article>
+                        <h4>Method for Collecting Content from Dark Websites</h4>
+                        <dl class="professor-patent__numbers">
+                          <div>
+                            <dt>Application No.</dt>
+                            <dd>10-2024-0080318</dd>
+                          </div>
+                        </dl>
+                      </li>
+                      <li class="professor-patent">
+                        <header class="professor-patent__header">
+                          <span class="professor-patent__status professor-patent__status--applied">Applied</span>
+                          <time datetime="2024-02-26">February 26, 2024</time>
+                        </header>
+                        <p class="professor-patent__inventors">
+                          Jin Gyeong Kim, Eun-Young Park, Jae-Min Park, Hyeon-Woo Lee, and Jiyeon Kim
+                        </p>
+                        <h4>DEVS-Based Digital Twin Modeling System for Smart Door Locks and Simulation Method Using the Same</h4>
+                        <dl class="professor-patent__numbers">
+                          <div>
+                            <dt>Application No.</dt>
+                            <dd>10-2024-0027175</dd>
+                          </div>
+                        </dl>
+                      </li>
+                      <li class="professor-patent">
+                        <header class="professor-patent__header">
+                          <span class="professor-patent__status professor-patent__status--granted">Granted</span>
+                          <time datetime="2024-01-30">January 30, 2024</time>
+                        </header>
+                        <p class="professor-patent__inventors">Jiyeon Kim et al.</p>
+                        <h4>Methods and Apparatus for Cost-Effective Real-Time Simulation in a Cloud-Native Environment</h4>
+                        <dl class="professor-patent__numbers">
+                          <div>
+                            <dt>Registration No.</dt>
+                            <dd>10-2633046</dd>
+                          </div>
+                        </dl>
+                      </li>
+                      <li class="professor-patent">
+                        <header class="professor-patent__header">
+                          <span class="professor-patent__status professor-patent__status--granted">Granted</span>
+                          <time datetime="2021-07-05">July 5, 2021</time>
+                        </header>
+                        <p class="professor-patent__inventors">Jiyeon Kim et al.</p>
+                        <h4>System for Evaluating the Performance of Blockchain-Based Services</h4>
+                        <dl class="professor-patent__numbers">
+                          <div>
+                            <dt>Registration No.</dt>
+                            <dd>1022752570000</dd>
+                          </div>
+                        </dl>
+                      </li>
+                      <li class="professor-patent">
+                        <header class="professor-patent__header">
+                          <span class="professor-patent__status professor-patent__status--granted">Granted</span>
+                          <time datetime="2020-12-31">December 31, 2020</time>
+                        </header>
+                        <p class="professor-patent__inventors">Jiyeon Kim et al.</p>
+                        <h4>Voice Phishing Prevention System, Method, and Recording Medium</h4>
+                        <dl class="professor-patent__numbers">
+                          <div>
+                            <dt>Registration No.</dt>
+                            <dd>1021998310000</dd>
+                          </div>
+                        </dl>
+                      </li>
+                    </ol>
                   </div>
-                </div>
-              </details>
-            </section>
-          </div>
-        </div>
-      </dialog>
-
-      <!--
-        PEOPLE MODAL / 교수진 소개
-        faculty-profile article을 교수진 수만큼 복사해서 사용할 수 있습니다.
-        사진을 넣을 때 faculty-profile__photo 안의 placeholder를 img로 교체하세요.
-      -->
-      <dialog
-        class="product-modal people-modal"
-        id="people-dialog"
-        data-people-dialog
-        data-theme="people"
-        aria-labelledby="people-modal-title"
-        aria-describedby="people-modal-description"
-      >
-        <div class="product-modal__shell">
-          <header class="product-modal__header">
-            <div class="product-modal__visual" aria-hidden="true">
-              <span class="product-modal__visual-grid"></span>
-              <span class="product-modal__visual-orbit"></span>
-              <span class="product-modal__visual-core"></span>
-              <span class="product-modal__visual-signal"></span>
+                </details>
+              </section>
             </div>
+          </article>
 
-            <div class="product-modal__header-copy">
-              <div class="product-modal__meta">
-                <p class="product-modal__eyebrow">FACULTY DIRECTORY</p>
-                <span class="product-modal__count">FACULTY PROFILES</span>
+          <article
+            class="professor-profile"
+            data-professor-profile="professor-2"
+            aria-labelledby="professor-2-name"
+            hidden
+          >
+            <header class="professor-profile__hero">
+              <div class="professor-profile__identity">
+                <p class="professor-profile__eyebrow">FACULTY PROFILE · 02</p>
+                <h2 id="professor-2-name">교수 2</h2>
+                <p class="professor-profile__position">직책 · 소속</p>
+                <p class="professor-profile__description" id="professor-2-description">
+                  교수님의 소개와 주요 연구 분야를 입력하세요.
+                </p>
               </div>
-              <h2 id="people-modal-title">People</h2>
-              <p class="product-modal__lead" id="people-modal-description">
-                Faculty profiles, introductions, and research interests will be presented here.
-              </p>
+
+              <figure class="professor-profile__photo">
+                <!-- 실제 사진을 추가한 뒤 아래 src 경로만 교체하세요. -->
+                <img
+                  src="assets/placeholders/professor-photo.svg"
+                  alt="교수 2 사진 자리"
+                  width="800"
+                  height="1000"
+                />
+              </figure>
+            </header>
+
+            <div class="professor-profile__body">
+              <section class="professor-category-grid" aria-label="교수 2 연구 실적">
+                <details class="professor-category professor-category--projects">
+                  <summary class="professor-category__summary">
+                    <span>01</span>
+                    <div>
+                      <small>RESEARCH ACTIVITY</small>
+                      <h3>Projects</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <h4>Project title</h4>
+                    <p>프로젝트명, 수행 기간, 역할과 주요 내용을 입력하세요.</p>
+                  </div>
+                </details>
+
+                <details class="professor-category professor-category--publications">
+                  <summary class="professor-category__summary">
+                    <span>02</span>
+                    <div>
+                      <small>RESEARCH PAPERS</small>
+                      <h3>Publications</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <h4>Publication title</h4>
+                    <p>논문명, 저자, 학술지와 발행 연도를 입력하세요.</p>
+                  </div>
+                </details>
+
+                <details class="professor-category professor-category--patents">
+                  <summary class="professor-category__summary">
+                    <span>03</span>
+                    <div>
+                      <small>INTELLECTUAL PROPERTY</small>
+                      <h3>Patents</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <h4>Patent title</h4>
+                    <p>특허명, 출원·등록 번호와 현재 상태를 입력하세요.</p>
+                  </div>
+                </details>
+              </section>
             </div>
+          </article>
 
-            <button
-              class="product-modal__close"
-              type="button"
-              data-people-close
-              aria-label="Close people"
-            >
-              ×
-            </button>
-          </header>
+          <article
+            class="professor-profile"
+            data-professor-profile="professor-3"
+            aria-labelledby="professor-3-name"
+            hidden
+          >
+            <header class="professor-profile__hero">
+              <div class="professor-profile__identity">
+                <p class="professor-profile__eyebrow">FACULTY PROFILE · 03</p>
+                <h2 id="professor-3-name">교수 3</h2>
+                <p class="professor-profile__position">직책 · 소속</p>
+                <p class="professor-profile__description" id="professor-3-description">
+                  교수님의 소개와 주요 연구 분야를 입력하세요.
+                </p>
+              </div>
 
-          <div class="product-modal__body people-modal__body">
-            <div class="people-modal__intro">
-              <p>FACULTY PROFILES</p>
+              <figure class="professor-profile__photo">
+                <!-- 실제 사진을 추가한 뒤 아래 src 경로만 교체하세요. -->
+                <img
+                  src="assets/placeholders/professor-photo.svg"
+                  alt="교수 3 사진 자리"
+                  width="800"
+                  height="1000"
+                />
+              </figure>
+            </header>
+
+            <div class="professor-profile__body">
+              <section class="professor-category-grid" aria-label="교수 3 연구 실적">
+                <details class="professor-category professor-category--projects">
+                  <summary class="professor-category__summary">
+                    <span>01</span>
+                    <div>
+                      <small>RESEARCH ACTIVITY</small>
+                      <h3>Projects</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <h4>Project title</h4>
+                    <p>프로젝트명, 수행 기간, 역할과 주요 내용을 입력하세요.</p>
+                  </div>
+                </details>
+
+                <details class="professor-category professor-category--publications">
+                  <summary class="professor-category__summary">
+                    <span>02</span>
+                    <div>
+                      <small>RESEARCH PAPERS</small>
+                      <h3>Publications</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <h4>Publication title</h4>
+                    <p>논문명, 저자, 학술지와 발행 연도를 입력하세요.</p>
+                  </div>
+                </details>
+
+                <details class="professor-category professor-category--patents">
+                  <summary class="professor-category__summary">
+                    <span>03</span>
+                    <div>
+                      <small>INTELLECTUAL PROPERTY</small>
+                      <h3>Patents</h3>
+                    </div>
+                    <span class="professor-category__toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="professor-category__content">
+                    <h4>Patent title</h4>
+                    <p>특허명, 출원·등록 번호와 현재 상태를 입력하세요.</p>
+                  </div>
+                </details>
+              </section>
             </div>
-
-            <section class="faculty-grid" aria-label="Faculty profiles">
-              <!-- 교수진을 추가할 때 아래 faculty-profile article 전체를 복사하세요. -->
-              <article class="faculty-profile" aria-labelledby="faculty-slot-1-title">
-                <div class="faculty-profile__photo">
-                  <img src="assets/images/kimjy.jpg" alt="교수 사진1" />
-                </div>
-
-                <div class="faculty-profile__content">
-                  <header class="faculty-profile__header">
-                    <h3 id="faculty-slot-1-title">직책과 성함</h3>
-                    <span>소속</span>ㄴ
-                  </header>
-
-                  <div class="faculty-profile__bio">
-                    <small>INTRODUCTION</small>
-                    <p>
-                      여기에다가 소개 적으시면 됩니다.
-                    </p>
-                  </div>
-
-                  <div class="faculty-profile__fields">
-                    <small>연구분야</small>
-                    <p>Research area · Research area · Research area</p>
-                  </div>
-                </div>
-              </article>
-              <article class="faculty-profile" aria-labelledby="faculty-slot-2-title">
-                <div class="faculty-profile__photo">
-                  <img src="###" alt="교수 사진2" />
-                </div>
-
-                <div class="faculty-profile__content">
-                  <header class="faculty-profile__header">
-                    <p>FACULTY PROFILE</p>
-                    <h3 id="faculty-slot-2-title">Professor Name</h3>
-                    <span>Position · Department</span>
-                  </header>
-
-                  <div class="faculty-profile__bio">
-                    <small>INTRODUCTION</small>
-                    <p>
-                      Add a short introduction, academic background, major research interests,
-                      and current activities in this space.
-                    </p>
-                  </div>
-
-                  <div class="faculty-profile__fields">
-                    <small>RESEARCH AREAS</small>
-                    <p>Research area · Research area · Research area</p>
-                  </div>
-                </div>
-              </article>
-              <article class="faculty-profile" aria-labelledby="faculty-slot-3-title">
-                <div class="faculty-profile__photo">
-                  <img src="###" alt="교수 사진3"/> 
-                </div>
-
-                <div class="faculty-profile__content">
-                  <header class="faculty-profile__header">
-                    <p>FACULTY PROFILE</p>
-                    <h3 id="faculty-slot-3-title">Professor Name</h3>
-                    <span>Position · Department</span>
-                  </header>
-
-                  <div class="faculty-profile__bio">
-                    <small>INTRODUCTION</small>
-                    <p>
-                      Add a short introduction, academic background, major research interests,
-                      and current activities in this space.
-                    </p>
-                  </div>
-
-                  <div class="faculty-profile__fields">
-                    <small>RESEARCH AREAS</small>
-                    <p>Research area · Research area · Research area</p>
-                  </div>
-                </div>
-              </article>
-            </section>
-          </div>
+          </article>
         </div>
       </dialog>
 
@@ -856,15 +1352,14 @@ Once an experiment ends, you can review participating accounts, generated posts,
             <button
               class="lab-link lab-link--button"
               type="button"
-              data-people-open
+              data-professor-open="professor-1"
               aria-haspopup="dialog"
-              aria-controls="people-dialog"
+              aria-controls="professor-dialog"
             >
-              <span class="lab-link__index">01</span>
+              <span class="lab-link__index"></span>
               <span>
-                <small>MEMBERS</small>
-                <strong>People</strong>
-                <span>Faculty members and their research areas</span>
+                <small>Professor</small>
+                <strong>Jiyeon Kim</strong>
               </span>
               <span class="lab-link__arrow" aria-hidden="true">＋</span>
             </button>
@@ -872,18 +1367,33 @@ Once an experiment ends, you can review participating accounts, generated posts,
             <button
               class="lab-link lab-link--button"
               type="button"
-              data-research-open
+              data-professor-open="professor-2"
               aria-haspopup="dialog"
-              aria-controls="research-dialog"
+              aria-controls="professor-dialog"
             >
-              <span class="lab-link__index">02</span>
+              <span class="lab-link__index"></span>
               <span>
-                <small>OUTCOMES</small>
-                <strong>Research</strong>
-                <span>Achievements, journals, and patents</span>
+                <small>Professor</small>
+                <strong>교수 2</strong>
               </span>
               <span class="lab-link__arrow" aria-hidden="true">＋</span>
             </button>
+
+            <button
+              class="lab-link lab-link--button"
+              type="button"
+              data-professor-open="professor-3"
+              aria-haspopup="dialog"
+              aria-controls="professor-dialog"
+            >
+              <span class="lab-link__index"></span>
+              <span>
+                <small>Professor</small>
+                <strong>교수 3</strong>
+              </span>
+              <span class="lab-link__arrow" aria-hidden="true">＋</span>
+            </button>
+
           </div>
         </div>
       </section>
@@ -895,6 +1405,6 @@ Once an experiment ends, you can review participating accounts, generated posts,
       <p>© <span data-year>2026</span> CySec Lab, Daegu University, Gyeongsan, South Korea</p>
     </footer>
 
-    <script src="script.js?v=20260814-2" defer></script>
+    <script src="script.js?v=20260820-3" defer></script>
   </body>
 </html>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title description">
+  <title id="title">교수 사진 기본 이미지</title>
+  <desc id="description">실제 교수 사진으로 교체하기 전 사용하는 인물 실루엣</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#152945" />
+      <stop offset="0.58" stop-color="#0a1428" />
+      <stop offset="1" stop-color="#050a16" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="55%">
+      <stop offset="0" stop-color="#8ecdff" stop-opacity="0.24" />
+      <stop offset="1" stop-color="#8ecdff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="silhouette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9dfff" stop-opacity="0.72" />
+      <stop offset="1" stop-color="#8297bd" stop-opacity="0.2" />
+    </linearGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#8ecdff" stroke-opacity="0.055" />
+    </pattern>
+  </defs>
+  <rect width="800" height="1000" fill="url(#background)" />
+  <rect width="800" height="1000" fill="url(#glow)" />
+  <rect width="800" height="1000" fill="url(#grid)" />
+  <circle cx="400" cy="342" r="142" fill="url(#silhouette)" opacity="0.76" />
+  <path
+    d="M130 950c15-210 111-344 270-344S655 740 670 950Z"
+    fill="url(#silhouette)"
+    opacity="0.66"
+  />
+  <circle cx="400" cy="342" r="183" fill="none" stroke="#8ecdff" stroke-opacity="0.18" />
+  <path d="M142 907H658" stroke="#9f8cff" stroke-opacity="0.3" />
+</svg>

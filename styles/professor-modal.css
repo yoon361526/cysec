@@ -1,0 +1,698 @@
+/* ----------------------------------------------------------------
+   교수별 소개 모달
+   ---------------------------------------------------------------- */
+
+.professor-modal {
+  --modal-accent: 142 205 255;
+  --modal-accent-secondary: 159 140 255;
+  --modal-accent-tertiary: 125 242 199;
+  width: min(1180px, calc(100% - 32px));
+}
+
+.professor-modal__shell {
+  position: relative;
+  max-height: calc(100dvh - 32px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 8%, rgb(var(--modal-accent-secondary) / 0.12), transparent 28%),
+    linear-gradient(145deg, #07101f, #050914 56%, #030711);
+}
+
+.professor-modal__close {
+  position: absolute;
+  z-index: 10;
+  top: 24px;
+  right: 24px;
+}
+
+.professor-profile {
+  max-height: calc(100dvh - 32px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgb(var(--modal-accent) / 0.52) rgb(255 255 255 / 0.04);
+}
+
+.professor-profile[hidden] {
+  display: none;
+}
+
+.professor-profile__hero {
+  position: relative;
+  display: grid;
+  min-height: 330px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(190px, 0.5fr);
+  align-items: center;
+  gap: clamp(34px, 5vw, 76px);
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(42px, 5vw, 72px);
+  border-bottom: 1px solid rgb(var(--modal-accent) / 0.24);
+  background:
+    linear-gradient(rgb(var(--modal-accent) / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--modal-accent) / 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 82% 16%, rgb(var(--modal-accent-secondary) / 0.2), transparent 30%),
+    linear-gradient(135deg, rgb(4 9 20 / 0.98), rgb(11 20 39 / 0.94));
+  background-size: 54px 54px, 54px 54px, auto, auto;
+}
+
+.professor-profile__hero::after {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--modal-accent) / 0.85) 36%,
+    rgb(var(--modal-accent-secondary) / 0.86) 72%,
+    transparent
+  );
+  content: "";
+}
+
+.professor-profile__identity {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  align-self: center;
+}
+
+.professor-profile__eyebrow {
+  margin-bottom: 18px;
+  color: rgb(var(--modal-accent));
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.professor-profile__identity h2 {
+  max-width: 680px;
+  margin-bottom: 16px;
+  color: #f8faff;
+  font-size: clamp(52px, 7vw, 92px);
+  font-weight: 660;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.professor-profile__position {
+  margin-bottom: 26px;
+  color: rgb(var(--modal-accent-secondary));
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.professor-profile__description {
+  max-width: 580px;
+  margin: 0;
+  color: #aebdd2;
+  font-size: clamp(14px, 1.35vw, 17px);
+  line-height: 1.8;
+}
+
+.professor-profile__photo {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 230px);
+  margin: 0;
+  justify-self: end;
+}
+
+.professor-profile__photo::before {
+  position: absolute;
+  z-index: -1;
+  inset: -14px;
+  border: 1px solid rgb(var(--modal-accent) / 0.2);
+  border-radius: 25px;
+  content: "";
+  transform: rotate(3deg);
+}
+
+.professor-profile__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid rgb(var(--modal-accent) / 0.38);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgb(16 31 55 / 0.94), rgb(5 11 25 / 0.98));
+  box-shadow:
+    0 24px 64px rgb(0 0 0 / 0.42),
+    0 0 40px rgb(var(--modal-accent) / 0.08);
+}
+
+.professor-profile__body {
+  padding: clamp(26px, 4vw, 48px);
+  background:
+    linear-gradient(rgb(255 255 255 / 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.018) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(5 10 22 / 0.97), rgb(2 6 15 / 0.99));
+  background-size: 48px 48px, 48px 48px, auto;
+}
+
+.professor-category-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.professor-category {
+  --category-accent: 125 242 199;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgb(var(--category-accent) / 0.27);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 92% 0%, rgb(var(--category-accent) / 0.11), transparent 34%),
+    linear-gradient(145deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.012)),
+    rgb(7 12 25 / 0.9);
+  box-shadow:
+    0 20px 48px rgb(0 0 0 / 0.24),
+    inset 0 1px 0 rgb(255 255 255 / 0.035);
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.professor-category[open] {
+  border-color: rgb(var(--category-accent) / 0.52);
+  box-shadow:
+    0 24px 54px rgb(0 0 0 / 0.3),
+    inset 0 0 0 1px rgb(var(--category-accent) / 0.055);
+}
+
+.professor-category--publications {
+  --category-accent: 90 215 255;
+}
+
+.professor-category--patents {
+  --category-accent: 255 184 92;
+}
+
+.professor-category__summary {
+  display: grid;
+  min-height: 98px;
+  grid-template-columns: auto minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background 200ms ease;
+}
+
+.professor-category__summary::-webkit-details-marker {
+  display: none;
+}
+
+.professor-category__summary:hover {
+  background: rgb(var(--category-accent) / 0.05);
+}
+
+.professor-category__summary:focus-visible {
+  border-radius: inherit;
+  outline: 2px solid rgb(var(--category-accent));
+  outline-offset: -4px;
+}
+
+.professor-category__summary > span:first-child {
+  color: rgb(var(--category-accent));
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.professor-category__summary div {
+  min-width: 0;
+}
+
+.professor-category__toggle {
+  position: relative;
+  display: block;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgb(var(--category-accent) / 0.42);
+  border-radius: 50%;
+  background: rgb(var(--category-accent) / 0.065);
+  transition: background 220ms ease, transform 240ms ease;
+}
+
+.professor-category__toggle::before,
+.professor-category__toggle::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgb(var(--category-accent));
+  content: "";
+  transform: translate(-50%, -50%);
+  transition: opacity 200ms ease, transform 240ms ease;
+}
+
+.professor-category__toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.professor-category[open] .professor-category__toggle {
+  background: rgb(var(--category-accent) / 0.14);
+  transform: rotate(180deg);
+}
+
+.professor-category[open] .professor-category__toggle::after {
+  opacity: 0;
+}
+
+.professor-category small {
+  display: block;
+  margin-bottom: 5px;
+  color: rgb(var(--category-accent));
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.professor-category h3 {
+  margin: 0;
+  color: #f7f9ff;
+  font-size: clamp(24px, 2.3vw, 32px);
+  font-weight: 680;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.professor-category__content {
+  padding: 24px 84px 28px;
+  border-top: 1px solid rgb(var(--category-accent) / 0.18);
+}
+
+.professor-category__content h4 {
+  margin: 0 0 12px;
+  color: #f1f5ff;
+  font-size: 15px;
+  font-weight: 720;
+}
+
+.professor-category__content p {
+  margin: 0;
+  color: #8998af;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.professor-project-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.professor-project {
+  display: grid;
+  gap: 9px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgb(var(--category-accent) / 0.16);
+}
+
+.professor-project:first-child {
+  padding-top: 0;
+}
+
+.professor-project:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.professor-project .professor-project__period {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgb(var(--category-accent));
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+}
+
+.professor-project h4 {
+  margin: 0;
+  color: #f2f6ff;
+  font-size: clamp(15px, 1.55vw, 18px);
+  font-weight: 700;
+  line-height: 1.62;
+}
+
+.professor-project .professor-project__funding {
+  display: flex;
+  align-items: center;
+  gap: 6px 10px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  color: #b6c4d8;
+  line-height: 1.55;
+}
+
+.professor-project__funding > span {
+  color: rgb(var(--category-accent));
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.professor-project__funding strong {
+  color: #cbd6e5;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.professor-patent-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.professor-patent {
+  display: grid;
+  gap: 9px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgb(var(--category-accent) / 0.18);
+}
+
+.professor-patent:first-child {
+  padding-top: 0;
+}
+
+.professor-patent:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.professor-patent__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.professor-patent__header time {
+  color: rgb(var(--category-accent));
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+}
+
+.professor-patent__status {
+  display: inline-flex;
+  min-height: 23px;
+  align-items: center;
+  padding: 3px 9px;
+  border: 1px solid rgb(var(--category-accent) / 0.48);
+  border-radius: 999px;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.professor-patent__status--granted {
+  color: #111827;
+  background: rgb(var(--category-accent));
+}
+
+.professor-patent__status--applied {
+  color: rgb(var(--category-accent));
+  background: rgb(var(--category-accent) / 0.07);
+}
+
+.professor-patent .professor-patent__inventors {
+  color: #8b9bb1;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.professor-patent h4 {
+  margin: 0;
+  color: #f2f6ff;
+  font-size: clamp(15px, 1.55vw, 18px);
+  font-weight: 700;
+  line-height: 1.62;
+}
+
+.professor-patent__numbers {
+  display: grid;
+  gap: 6px;
+  margin: 4px 0 0;
+}
+
+.professor-patent__numbers > div {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.professor-patent__numbers dt {
+  color: rgb(var(--category-accent));
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.professor-patent__numbers dd {
+  margin: 0;
+  color: #c4d0df;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 750;
+  letter-spacing: 0.045em;
+}
+
+.professor-publication-group + .professor-publication-group {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid rgb(var(--category-accent) / 0.34);
+}
+
+.professor-publication-group__heading {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.professor-publication-group__heading > span {
+  color: rgb(var(--category-accent));
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.professor-publication-group__heading h4 {
+  margin: 0;
+  color: #f3f7ff;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 720;
+  letter-spacing: -0.025em;
+}
+
+.professor-publication-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: publication;
+}
+
+.professor-publication {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  padding: 24px 0 24px 44px;
+  border-bottom: 1px solid rgb(var(--category-accent) / 0.16);
+  counter-increment: publication;
+}
+
+.professor-publication:last-child {
+  border-bottom: 0;
+}
+
+.professor-publication::before {
+  position: absolute;
+  top: 26px;
+  left: 0;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgb(var(--category-accent) / 0.36);
+  border-radius: 50%;
+  color: rgb(var(--category-accent));
+  background: rgb(var(--category-accent) / 0.055);
+  content: counter(publication, decimal-leading-zero);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.professor-publication .professor-publication__authors {
+  color: #8495ad;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.professor-publication h5 {
+  margin: 0;
+  font-size: clamp(15px, 1.55vw, 18px);
+  font-weight: 700;
+  line-height: 1.58;
+}
+
+.professor-publication h5 a {
+  color: #edf5ff;
+  transition: color 180ms ease;
+}
+
+.professor-publication h5 a:hover {
+  color: rgb(var(--category-accent));
+}
+
+.professor-publication h5 a span {
+  display: inline-block;
+  margin-left: 5px;
+  color: rgb(var(--category-accent));
+  font-size: 0.8em;
+}
+
+.professor-publication h5 a span[lang="ko"] {
+  margin-left: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.professor-publication .professor-publication__translation {
+  margin: -2px 0 0;
+  color: #8fa1b8;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.professor-publication .professor-publication__details {
+  display: flex;
+  align-items: center;
+  gap: 7px 14px;
+  flex-wrap: wrap;
+  color: #7789a2;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.professor-publication__details cite {
+  color: #b9c8dc;
+  font-style: normal;
+  font-weight: 750;
+}
+
+.professor-publication__impact {
+  padding: 3px 8px;
+  border: 1px solid rgb(var(--category-accent) / 0.32);
+  border-radius: 999px;
+  color: rgb(var(--category-accent));
+  background: rgb(var(--category-accent) / 0.06);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+}
+
+body.professor-modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 860px) {
+  .professor-profile__hero {
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 0.55fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 620px) {
+  .professor-modal {
+    width: calc(100% - 12px);
+  }
+
+  .professor-modal__shell,
+  .professor-profile {
+    max-height: calc(100dvh - 12px);
+  }
+
+  .professor-modal__close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .professor-profile__hero {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    padding: 72px 22px 32px;
+  }
+
+  .professor-profile__identity h2 {
+    font-size: clamp(46px, 16vw, 66px);
+  }
+
+  .professor-profile__photo {
+    width: min(68%, 210px);
+    justify-self: center;
+  }
+
+  .professor-profile__body {
+    padding: 14px;
+  }
+
+  .professor-category__summary,
+  .professor-category__content {
+    padding: 20px;
+  }
+
+  .professor-category__summary {
+    grid-template-columns: auto minmax(0, 1fr) 40px;
+    gap: 14px;
+  }
+
+  .professor-project {
+    padding-block: 20px;
+  }
+
+  .professor-project .professor-project__funding {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .professor-publication {
+    padding: 21px 0 21px 38px;
+  }
+
+  .professor-publication::before {
+    top: 22px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .professor-publication .professor-publication__details {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

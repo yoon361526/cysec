@@ -83,6 +83,7 @@
 }
 
 .lab-intro__inner {
+  min-width: 0;
   width: min(100%, var(--content-width));
   margin-inline: auto;
   text-align: center;
@@ -115,20 +116,21 @@
 
 .lab-links {
   display: grid;
-  max-width: 1050px;
+  max-width: 1240px;
   margin-inline: auto;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   text-align: left;
 }
 
 .lab-link {
+  position: relative;
   display: grid;
-  min-height: 190px;
-  grid-template-columns: 36px 1fr auto;
-  gap: clamp(18px, 2vw, 28px);
+  min-height: 180px;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: clamp(14px, 1.6vw, 22px);
   align-items: center;
-  padding: clamp(24px, 3vw, 40px);
+  padding: clamp(24px, 2.4vw, 32px);
   border: 1px solid rgb(142 205 255 / 0.38);
   background:
     linear-gradient(145deg, rgb(12 23 43 / 0.72), rgb(9 11 29 / 0.58));
@@ -161,7 +163,7 @@
 
 .lab-link strong {
   margin: 7px 0 8px;
-  font-size: clamp(24px, 2.4vw, 36px);
+  font-size: clamp(24px, 2vw, 32px);
   font-weight: 650;
   letter-spacing: -0.04em;
 }
@@ -173,8 +175,8 @@
 
 .lab-link__arrow {
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 50%;
@@ -198,10 +200,16 @@
   border-color: var(--ink);
 }
 
-
 /* ----------------------------------------------------------------
    반응형
    ---------------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .lab-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
 
 @media (max-width: 620px) {
   .lab-intro {
@@ -211,6 +219,10 @@
 
   .lab-intro h2 {
     font-size: clamp(46px, 14vw, 66px);
+  }
+
+  .lab-intro__description {
+    white-space: normal;
   }
 
   .lab-links {
@@ -227,6 +239,7 @@
     width: 40px;
     height: 40px;
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

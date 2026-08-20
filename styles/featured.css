@@ -849,8 +849,7 @@
 }
 
 .product-modal-open .research-visual *,
-.research-modal-open .research-visual *,
-.people-modal-open .research-visual *,
+.professor-modal-open .research-visual *,
 .featured-card.is-visual-paused .research-visual * {
   animation-play-state: paused !important;
 }

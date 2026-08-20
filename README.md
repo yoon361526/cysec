@@ -19,8 +19,7 @@ Labweb/
 │  ├─ layout.css                # 헤더와 푸터
 │  ├─ featured.css              # 상단 연구 분야 카드, SVG 애니메이션, 스크롤 화살표
 │  ├─ product-modal.css         # 제품 소개 모달과 영상 카드
-│  ├─ research-modal.css        # 특허·논문·프로젝트 연구 실적 모달
-│  ├─ people-modal.css          # 교수 사진과 소개용 교수진 모달
+│  ├─ professor-modal.css       # 교수별 사진과 연구 실적 모달
 │  └─ lab-intro.css             # Welcome 영역과 연구실 링크
 └─ assets/
    ├─ Daegu_Univ_Logo.svg       # 파비콘과 Welcome 로고
